@@ -1,0 +1,1497 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      The ChitraSells - Virtual Try-on & AI Designs | Fashion, Decor & Jewellery
+    </title>
+
+    <!-- SEO Meta Tags for Search Engines -->
+    <meta
+      name="description"
+      content="Experience the future of shopping with The ChitraSells. Use our AI-powered virtual try-on for fashion and home decor, and design custom jewellery and watches. Explore the blog for AI trends and tips. Your imagination, powered by AI."
+    />
+    <meta
+      name="keywords"
+      content="AI fashion, virtual try-on, AI home decor, generative AI, virtual visualization, custom jewellery, AI watches, personalized designs, The ChitraSells, AI blog, tech trends, future of e-commerce"
+    />
+    <meta name="author" content="The ChitraSells" />
+    <link rel="canonical" href="https://yourwebsite.com/the-chitrasells" />
+
+    <!-- Open Graph Tags for Social Media -->
+    <meta
+      property="og:title"
+      content="The ChitraSells - AI Fashion, Decor & Jewellery"
+    />
+    <meta
+      property="og:description"
+      content="Create, try, and visualize with AI. The ChitraSells offers virtual fashion try-ons, custom home decor previews, and unique jewellery design."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://yourwebsite.com/the-chitrasells" />
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg-primary: #1a1a2e;
+        --bg-secondary: #252839;
+        --text-color: #e4e4e7;
+        --accent-purple: #9275d2;
+        --accent-cyan: #00bcd4;
+      }
+      body {
+        font-family: "Montserrat", sans-serif;
+        background-color: var(--bg-primary);
+        color: var(--text-color);
+        overflow-x: hidden;
+      }
+      h1,
+      h2 {
+        font-family: "Playfair Display", serif;
+      }
+      .btn-primary {
+        padding: 0.75rem 2rem;
+        background: linear-gradient(to right, #a78bfa, #00bcd4);
+        color: #fff;
+        font-weight: bold;
+        border-radius: 9999px;
+        box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s, box-shadow 0.3s;
+        outline: none;
+        border: none;
+      }
+      .btn-primary:hover,
+      .btn-primary:focus {
+        transform: scale(1.05);
+        box-shadow: 0 8px 24px 0 rgba(146, 117, 210, 0.5);
+      }
+      .btn-secondary {
+        padding: 0.75rem 2rem;
+        background: #fff;
+        color: #1a1a2e;
+        font-weight: bold;
+        border-radius: 9999px;
+        box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.15);
+        transition: transform 0.3s, box-shadow 0.3s;
+        outline: none;
+        border: none;
+      }
+      .btn-secondary:hover,
+      .btn-secondary:focus {
+        transform: scale(1.05);
+        box-shadow: 0 8px 24px 0 rgba(146, 117, 210, 0.5);
+      }
+      .card {
+        background-color: #27272a;
+        border-radius: 1.5rem;
+        padding: 1.5rem;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+        border: 1px solid #3f3f46;
+        transition: box-shadow 0.5s;
+      }
+      .card:hover {
+        box-shadow: 0 0 40px rgba(146, 117, 210, 0.5);
+      }
+      .input-field {
+        width: 100%;
+        padding: 1rem;
+        background: #18181b;
+        border: 1px solid #3f3f46;
+        border-radius: 0.75rem;
+        color: #fff;
+        transition: border-color 0.2s, box-shadow 0.2s;
+      }
+      .input-field::placeholder {
+        color: #71717a;
+      }
+      .input-field:focus {
+        border-color: #00bcd4;
+        box-shadow: 0 0 0 2px #00bcd4;
+        outline: none;
+      }
+      .skeleton {
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        background-color: #3f3f46;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.5;
+        }
+      }
+      #message-box {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+      }
+    </style>
+  </head>
+  <body class="bg-primary">
+    <div
+      id="loading-spinner"
+      class="hidden fixed inset-0 z-[999] bg-black bg-opacity-75 flex items-center justify-center"
+    >
+      <div
+        class="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-purple-500"
+      ></div>
+    </div>
+
+    <!-- Custom Firebase Script -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+      import {
+        getAuth,
+        signInAnonymously,
+        signInWithCustomToken,
+        onAuthStateChanged,
+      } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+      import {
+        getFirestore,
+        doc,
+        getDoc,
+        setDoc,
+        onSnapshot,
+        collection,
+        query,
+        where,
+        addDoc,
+        getDocs,
+        deleteDoc,
+      } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+      import { setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+      // Register Service Worker for PWA functionality
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("/service-worker.js")
+            .then((registration) => {
+              console.log(
+                "Service Worker registered with scope:",
+                registration.scope
+              );
+            })
+            .catch((err) => {
+              console.log("Service Worker registration failed:", err);
+            });
+        });
+      }
+
+      // IMPORTANT: Use the global variables for Firebase configuration
+      const appId =
+        typeof __app_id !== "undefined" ? __app_id : "default-app-id";
+      const firebaseConfig =
+        typeof __firebase_config !== "undefined"
+          ? JSON.parse(__firebase_config)
+          : {};
+      const initialAuthToken =
+        typeof __initial_auth_token !== "undefined"
+          ? __initial_auth_token
+          : null;
+
+      let app;
+      let db;
+      let auth;
+      let userId;
+
+      // Set Firestore log level for debugging
+      setLogLevel("Debug");
+
+      window.addEventListener("DOMContentLoaded", async () => {
+        try {
+          app = initializeApp(firebaseConfig);
+          db = getFirestore(app);
+          auth = getAuth(app);
+
+          // Listen for authentication state changes
+          onAuthStateChanged(auth, async (user) => {
+            if (user) {
+              userId = user.uid;
+              document.getElementById(
+                "user-id-display"
+              ).textContent = `User ID: ${userId}`;
+              document
+                .getElementById("my-designs-section")
+                .classList.remove("hidden");
+              document
+                .getElementById("my-designs-section")
+                .scrollIntoView({ behavior: "smooth" });
+              loadDesigns();
+            } else {
+              console.log("User is signed out.");
+              userId = null;
+              document.getElementById("user-id-display").textContent =
+                "Signed Out";
+              document
+                .getElementById("my-designs-section")
+                .classList.add("hidden");
+            }
+          });
+
+          if (initialAuthToken) {
+            await signInWithCustomToken(auth, initialAuthToken);
+          } else {
+            await signInAnonymously(auth);
+          }
+        } catch (error) {
+          console.error(
+            "Firebase initialization or authentication failed:",
+            error
+          );
+          showMessage(
+            "Error",
+            "Failed to initialize the app. Please try again."
+          );
+        }
+      });
+
+      const saveDesign = async (title, prompt, imageUrl, type) => {
+        if (!userId) {
+          showMessage("Login Required", "Please sign in to save your designs.");
+          return;
+        }
+
+        try {
+          const designsCollectionRef = collection(
+            db,
+            `artifacts/${appId}/users/${userId}/designs`
+          );
+          await addDoc(designsCollectionRef, {
+            title,
+            prompt,
+            imageUrl,
+            type,
+            timestamp: new Date(),
+          });
+          showMessage("Success!", `${title} saved to your designs.`);
+        } catch (e) {
+          console.error("Error adding document: ", e);
+          showMessage(
+            "Save Failed",
+            "Could not save design. Please try again."
+          );
+        }
+      };
+
+      const loadDesigns = () => {
+        if (!userId) return;
+        const designsContainer = document.getElementById("my-designs-gallery");
+        designsContainer.innerHTML = "";
+        const designsCollectionRef = collection(
+          db,
+          `artifacts/${appId}/users/${userId}/designs`
+        );
+
+        onSnapshot(designsCollectionRef, (querySnapshot) => {
+          designsContainer.innerHTML = "";
+          if (querySnapshot.empty) {
+            designsContainer.innerHTML = `<p class="text-center text-gray-500 col-span-full">You haven't saved any designs yet.</p>`;
+          } else {
+            querySnapshot.forEach((doc) => {
+              const data = doc.data();
+              const designCard = document.createElement("div");
+              designCard.classList.add(
+                "relative",
+                "bg-gray-700",
+                "p-4",
+                "rounded-xl",
+                "shadow-sm"
+              );
+              designCard.innerHTML = `
+                <img src="${data.imageUrl}" alt="${data.title}" class="w-full h-48 object-cover rounded-lg mb-2" />
+                <h3 class="font-semibold text-lg text-gray-200 truncate">${data.title}</h3>
+                <p class="text-sm text-gray-400">${data.type} Design</p>
+                <button data-doc-id="${doc.id}" aria-label="Delete design" class="absolute top-2 right-2 text-red-400 hover:text-red-600 transition-colors duration-200">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm6 0a1 1 0 112 0v6a1 1 0 11-2 0V8z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+              `;
+              designsContainer.appendChild(designCard);
+            });
+            designsContainer.querySelectorAll("button").forEach((button) => {
+              button.addEventListener("click", async (e) => {
+                const docId = e.currentTarget.dataset.docId;
+                try {
+                  await deleteDoc(
+                    doc(db, `artifacts/${appId}/users/${userId}/designs`, docId)
+                  );
+                  showMessage("Deleted", "Design successfully removed.");
+                } catch (error) {
+                  console.error("Error deleting document: ", error);
+                  showMessage("Deletion Failed", "Could not delete design.");
+                }
+              });
+            });
+          }
+        });
+      };
+
+      window.saveDesign = saveDesign;
+    </script>
+
+    <!-- Navigation Header -->
+    <header
+      class="p-4 md:p-6 bg-secondary shadow-md flex justify-between items-center z-50"
+    >
+      <div class="flex items-center space-x-4">
+        <img
+          src="cropped_circle_image (1).png"
+          alt="The ChitraSells Logo"
+          class="w-12 h-12 rounded-full"
+        />
+        <h1 class="text-2xl md:text-3xl font-bold text-white">
+          The ChitraSells
+        </h1>
+      </div>
+      <div class="flex items-center space-x-4">
+        <span
+          id="user-id-display"
+          class="text-xs text-gray-400 truncate max-w-[100px] sm:max-w-none"
+          >...</span
+        >
+      </div>
+    </header>
+
+    <main class="container mx-auto p-4 md:p-8 space-y-24">
+      <!-- Hero Section -->
+      <section
+        class="text-center py-20 md:py-32 space-y-6 bg-secondary rounded-3xl shadow-xl border border-gray-700"
+      >
+        <h2
+          class="text-4xl md:text-6xl font-extrabold leading-tight text-white"
+        >
+          Your Imagination, <br /><span
+            class="bg-gradient-to-r from-purple-500 to-cyan-500 bg-clip-text text-transparent"
+            >Powered by AI.</span
+          >
+        </h2>
+        <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
+          Create, visualize, and save unique designs for fashion, decor, and
+          more.
+        </p>
+        <div class="flex justify-center space-x-4">
+          <a href="#fashion-section" class="btn-primary"
+            >Virtual Fashion Try-On</a
+          >
+          <a href="#jewellery-section" class="btn-secondary"
+            >Jewellery & Watches Designer</a
+          >
+        </div>
+      </section>
+
+      ---
+
+      <!-- Fashion Try-On Section -->
+      <section id="fashion-section" class="py-12">
+        <div class="text-center mb-12 space-y-4">
+          <h2 class="text-3xl md:text-5xl font-bold text-white">
+            Virtual Fashion Try-On
+          </h2>
+          <p class="text-gray-400 max-w-xl mx-auto">
+            See how different outfits look on you. Upload a photo, describe your
+            outfit, and let our AI transform it.
+          </p>
+        </div>
+        <div
+          class="flex flex-col lg:flex-row items-center justify-center gap-8"
+        >
+          <div
+            class="relative w-full lg:w-1/2 bg-secondary rounded-3xl overflow-hidden shadow-xl aspect-[3/4] border border-gray-700"
+          >
+            <img
+              id="tryon-output-img"
+              src="https://placehold.co/600x800/252839/e4e4e7?text=Try-on+Output"
+              alt="AI-generated fashion virtual try-on output"
+              class="absolute inset-0 w-full h-full object-cover rounded-3xl transition-opacity duration-300"
+            />
+            <div
+              id="tryon-loading"
+              class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-75 z-10 hidden"
+            >
+              <div
+                class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-purple-500"
+              ></div>
+            </div>
+          </div>
+          <div class="w-full lg:w-1/2 p-4 md:p-8 card space-y-6">
+            <div class="space-y-4">
+              <label for="tryon-prompt" class="text-gray-300 font-medium"
+                >Describe your outfit:</label
+              >
+              <textarea
+                id="tryon-prompt"
+                class="input-field"
+                rows="4"
+                placeholder="E.g., A sleek black leather jacket with a white t-shirt and ripped blue jeans."
+              ></textarea>
+            </div>
+            <button
+              id="tryon-generate-btn"
+              class="btn-primary w-full flex items-center justify-center gap-2"
+              aria-label="Generate outfit"
+              disabled
+            >
+              Generate Outfit
+            </button>
+            <button
+              id="tryon-save-btn"
+              class="btn-secondary w-full flex items-center justify-center gap-2 hidden"
+              aria-label="Save fashion design"
+            >
+              Save Design
+            </button>
+            <div class="mt-4">
+              <label
+                for="tryon-image-upload"
+                class="flex justify-center w-full px-4 py-6 text-gray-500 border-2 border-dashed border-gray-700 rounded-xl cursor-pointer hover:bg-gray-900 transition-colors"
+              >
+                <svg
+                  class="w-8 h-8 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+                  ></path>
+                </svg>
+                <span class="font-medium">Click to upload your photo</span>
+                <input
+                  id="tryon-image-upload"
+                  type="file"
+                  accept="image/*"
+                  class="hidden"
+                />
+              </label>
+            </div>
+            <div
+              id="tryon-preview-container"
+              class="relative w-full h-80 bg-gray-900 rounded-xl overflow-hidden mt-4 hidden"
+            >
+              <img
+                id="tryon-preview-img"
+                src=""
+                alt="Uploaded user photo for virtual fashion try-on"
+                class="absolute inset-0 w-full h-full object-cover"
+              />
+              <div
+                id="tryon-preview-overlay"
+                class="absolute inset-0 flex items-center justify-center text-white text-lg font-bold"
+              >
+                Image Preview
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      ---
+
+      <!-- Decor Visualization Section -->
+      <section id="decor-section" class="py-12">
+        <div class="text-center mb-12 space-y-4">
+          <h2 class="text-3xl md:text-5xl font-bold text-white">
+            Home Decor Visualization
+          </h2>
+          <p class="text-gray-400 max-w-xl mx-auto">
+            See new AI-generated furniture and decor items in your own room.
+          </p>
+        </div>
+        <div
+          class="flex flex-col lg:flex-row items-center justify-center gap-8"
+        >
+          <div
+            class="relative w-full lg:w-1/2 bg-gray-800 rounded-3xl shadow-xl aspect-[4/3] overflow-hidden border border-gray-700"
+          >
+            <img
+              id="decor-room-img"
+              src="https://placehold.co/1200x900/252839/e4e4e7?text=Upload+Your+Room+Photo"
+              alt="User's room photo for home decor visualization"
+              class="w-full h-full object-cover"
+            />
+            <div id="decor-preview-container" class="absolute inset-0"></div>
+          </div>
+          <div class="w-full lg:w-1/2 p-4 md:p-8 card space-y-6">
+            <div class="space-y-4">
+              <label for="decor-prompt" class="text-gray-300 font-medium"
+                >Describe your decor item:</label
+              >
+              <textarea
+                id="decor-prompt"
+                class="input-field"
+                rows="3"
+                placeholder="E.g., A minimalist wooden coffee table with a glass top."
+              ></textarea>
+            </div>
+            <button
+              id="decor-generate-btn"
+              class="btn-primary w-full flex items-center justify-center gap-2"
+              aria-label="Generate decor item"
+            >
+              Generate Decor
+            </button>
+            <button
+              id="decor-save-btn"
+              class="btn-secondary w-full flex items-center justify-center gap-2 hidden"
+              aria-label="Save decor design"
+            >
+              Save Decor
+            </button>
+            <div class="mt-4">
+              <label
+                for="decor-image-upload"
+                class="flex justify-center w-full px-4 py-6 text-gray-500 border-2 border-dashed border-gray-700 rounded-xl cursor-pointer hover:bg-gray-900 transition-colors"
+              >
+                <svg
+                  class="w-8 h-8 mr-2"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
+                  ></path>
+                </svg>
+                <span class="font-medium">Click to upload your room photo</span>
+                <input
+                  id="decor-image-upload"
+                  type="file"
+                  accept="image/*"
+                  class="hidden"
+                />
+              </label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      ---
+
+      <!-- Jewellery & Watches Section -->
+      <section id="jewellery-section" class="py-12">
+        <div class="text-center mb-12 space-y-4">
+          <h2 class="text-3xl md:text-5xl font-bold text-white">
+            Jewellery & Watches Designer
+          </h2>
+          <p class="text-gray-400 max-w-xl mx-auto">
+            Design your own custom jewellery or watch with a simple text
+            description.
+          </p>
+        </div>
+        <div
+          class="flex flex-col lg:flex-row items-center justify-center gap-8"
+        >
+          <div
+            class="relative w-full lg:w-1/2 aspect-square p-4 bg-gray-800 rounded-3xl shadow-xl flex items-center justify-center overflow-hidden border border-gray-700"
+          >
+            <div
+              id="jewellery-placeholder"
+              class="absolute inset-0 flex items-center justify-center text-center text-gray-400 p-8"
+            >
+              <span class="text-lg"
+                >Your AI-generated design will appear here.</span
+              >
+            </div>
+            <img
+              id="jewellery-design-image"
+              src=""
+              alt="AI generated jewellery or watch design"
+              class="w-full h-full object-contain p-8 hidden"
+            />
+            <div
+              id="jewellery-loading"
+              class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-75 z-10 hidden"
+            >
+              <div
+                class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-purple-500"
+              ></div>
+            </div>
+          </div>
+          <div class="w-full lg:w-1/2 p-4 md:p-8 card space-y-6">
+            <div class="space-y-4">
+              <label for="jewellery-prompt" class="text-gray-300 font-medium"
+                >Describe your jewellery or watch design:</label
+              >
+              <textarea
+                id="jewellery-prompt"
+                class="input-field"
+                rows="4"
+                placeholder="E.g., A minimalist silver watch with a dark blue face and a leather strap."
+              ></textarea>
+            </div>
+            <button
+              id="jewellery-generate-btn"
+              class="btn-primary w-full flex items-center justify-center gap-2"
+              aria-label="Generate jewellery design"
+            >
+              Generate Design
+            </button>
+            <button
+              id="jewellery-save-btn"
+              class="btn-secondary w-full flex items-center justify-center gap-2 hidden"
+              aria-label="Save jewellery design"
+            >
+              Save Design
+            </button>
+          </div>
+        </div>
+      </section>
+
+      ---
+
+      <!-- Blog Section for Content Expansion with Search -->
+      <section id="blog-section" class="py-12">
+        <div class="text-center mb-12 space-y-4">
+          <h2 class="text-3xl md:text-5xl font-bold text-white">Our Blogs</h2>
+          <p class="text-gray-400 max-w-xl mx-auto">
+            Explore articles on the latest in AI, fashion, and home decor
+            technology.
+          </p>
+          <!-- Search Bar -->
+          <div class="relative max-w-2xl mx-auto mt-8">
+            <input
+              type="text"
+              id="blog-search-input"
+              placeholder="Search for articles..."
+              class="input-field pl-12 pr-4"
+            />
+            <div
+              class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 text-gray-400"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div
+          id="blog-posts-container"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          <!-- Blog Posts will be dynamically rendered here -->
+        </div>
+      </section>
+
+      ---
+
+      <!-- My Designs Section -->
+      <section id="my-designs-section" class="py-12 hidden">
+        <div class="text-center mb-12 space-y-4">
+          <h2 class="text-3xl md:text-5xl font-bold text-white">
+            My Saved Designs
+          </h2>
+          <p class="text-gray-400 max-w-xl mx-auto">
+            A gallery of your unique, AI-powered creations.
+          </p>
+        </div>
+        <div
+          id="my-designs-gallery"
+          class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
+        >
+          <!-- Designs will be loaded here dynamically -->
+          <p class="text-center text-gray-400 col-span-full">
+            Loading your designs...
+          </p>
+        </div>
+      </section>
+
+      ---
+
+      <!-- About Us Section -->
+      <section id="about-us" class="py-12">
+        <div class="card p-8 text-center space-y-6">
+          <h2 class="text-3xl md:text-5xl font-bold text-white">
+            About The ChitraSells
+          </h2>
+          <p class="text-gray-400 max-w-3xl mx-auto">
+            We are pioneers in AI-driven e-commerce. Our mission is to
+            democratize design and make personalized, one-of-a-kind goods
+            accessible to everyone. By harnessing the power of generative AI, we
+            allow you to become the designer, transforming your ideas into
+            reality.
+          </p>
+        </div>
+      </section>
+
+      ---
+
+      <!-- Contact Section -->
+      <section id="contact" class="py-12">
+        <div class="text-center mb-12 space-y-4">
+          <h2 class="text-3xl md:text-5xl font-bold text-white">
+            Get in Touch
+          </h2>
+          <p class="text-gray-400 max-w-xl mx-auto">
+            Have a question or a brilliant idea? We'd love to hear from you.
+          </p>
+        </div>
+        <div class="max-w-xl mx-auto card p-8 space-y-6">
+          <form
+            id="contact-form"
+            action="#"
+            method="POST"
+            aria-label="Contact Form"
+          >
+            <div>
+              <label
+                for="name"
+                class="block text-sm font-medium text-gray-300 mb-2"
+                >Name</label
+              >
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="input-field"
+                placeholder="Your Name"
+                aria-required="true"
+              />
+            </div>
+            <div>
+              <label
+                for="email"
+                class="block text-sm font-medium text-gray-300 mb-2"
+                >Email</label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="input-field"
+                placeholder="you@example.com"
+                aria-required="true"
+              />
+            </div>
+            <div>
+              <label
+                for="message"
+                class="block text-sm font-medium text-gray-300 mb-2"
+                >Message</label
+              >
+              <textarea
+                id="message"
+                name="message"
+                rows="4"
+                class="input-field"
+                placeholder="Your message..."
+                aria-required="true"
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="btn-primary w-full"
+              aria-label="Submit contact form"
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-secondary text-gray-400 py-12 px-8">
+      <div
+        class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left"
+      >
+        <!-- Logo & Description -->
+        <div>
+          <h3 class="text-white text-xl font-bold mb-2">The ChitraSells</h3>
+          <p class="text-sm">
+            Revolutionizing e-commerce with AI-powered virtual try-ons and
+            custom design tools.
+          </p>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="space-y-2">
+          <h4 class="text-white font-semibold">Quick Links</h4>
+          <ul class="space-y-1">
+            <li>
+              <a
+                href="#fashion-section"
+                class="hover:text-white transition-colors"
+                >Virtual Try-On</a
+              >
+            </li>
+            <li>
+              <a
+                href="#decor-section"
+                class="hover:text-white transition-colors"
+                >Home Decor</a
+              >
+            </li>
+            <li>
+              <a
+                href="#jewellery-section"
+                class="hover:text-white transition-colors"
+                >Jewellery & Watches</a
+              >
+            </li>
+            <li>
+              <a href="#blog-section" class="hover:text-white transition-colors"
+                >Blogs</a
+              >
+            </li>
+            <li>
+              <a href="#contact" class="hover:text-white transition-colors"
+                >Contact Us</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contact Info & Social -->
+        <div class="space-y-2">
+          <h4 class="text-white font-semibold">Follow Us</h4>
+          <p class="text-sm">Stay up-to-date with our latest AI innovations.</p>
+          <div class="flex justify-center md:justify-start space-x-4 mt-2">
+            <!-- Placeholder social icons -->
+            <a href="#" aria-label="Follow us on Twitter"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-twitter"
+              >
+                <path
+                  d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3.84 9.42 9.42 0 0 1-6.79-2.92c-.22.42-.4.85-.5 1.3.1.2.2.4.3.6a4.48 4.48 0 0 1-2-1.93c.14.4.3.8.5 1.2a4.48 4.48 0 0 0 3.12 3.1c-.26.07-.52.1-.78.1-.19 0-.38-.01-.57-.03 1.15 3.17 4.23 5.51 7.9 5.51a9.42 9.42 0 0 1-5.83 2c-.18 0-.35-.01-.52-.02a10.95 10.95 0 0 0 5.92 1.74c6.7 0 10.36-5.54 10.36-10.36 0-.16-.01-.33-.02-.49.71-.51 1.33-1.15 1.8-1.88z"
+                /></svg
+            ></a>
+            <a href="#" aria-label="Follow us on Instagram"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-instagram"
+              >
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg
+            ></a>
+            <a href="#" aria-label="Follow us on LinkedIn"
+              ><svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="feather feather-linkedin"
+              >
+                <path
+                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+                />
+                <rect x="2" y="9" width="4" height="12" />
+                <circle cx="4" cy="4" r="2" /></svg
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div class="mt-8 text-center text-sm">
+        &copy; 2025 The ChitraSells. All rights reserved.
+      </div>
+    </footer>
+
+    <!-- Custom Message Box -->
+    <div
+      id="message-box"
+      class="fixed bottom-4 right-4 z-50 transform transition-all duration-300 ease-in-out opacity-0 translate-y-4 pointer-events-none"
+    >
+      <div
+        id="message-content"
+        class="bg-gray-800 text-white rounded-lg p-4 shadow-lg flex items-center space-x-3 max-w-xs border border-gray-700"
+      >
+        <div id="message-icon"></div>
+        <div id="message-text" class="text-sm font-medium"></div>
+      </div>
+    </div>
+
+    <script type="module">
+      import {
+        getAuth,
+        signInAnonymously,
+        signInWithCustomToken,
+      } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+
+      const showMessage = (title, message) => {
+        const msgBox = document.getElementById("message-box");
+        const msgText = document.getElementById("message-text");
+        const msgIcon = document.getElementById("message-icon");
+
+        msgText.innerHTML = `<strong>${title}:</strong> ${message}`;
+        msgIcon.innerHTML =
+          title === "Success!"
+            ? `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`
+            : `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`;
+
+        msgBox.classList.remove("hidden", "opacity-0", "translate-y-4");
+        msgBox.classList.add("opacity-100", "translate-y-0");
+
+        setTimeout(() => {
+          msgBox.classList.add("opacity-0", "translate-y-4");
+          setTimeout(() => msgBox.classList.add("hidden"), 300);
+        }, 5000);
+      };
+
+      const toggleLoading = (element, show) => {
+        if (show) {
+          element.classList.remove("hidden");
+        } else {
+          element.classList.add("hidden");
+        }
+      };
+
+      // Fashion Try-On Section
+      document.addEventListener("DOMContentLoaded", () => {
+        const tryonPromptInput = document.getElementById("tryon-prompt");
+        const tryonGenerateBtn = document.getElementById("tryon-generate-btn");
+        const tryonSaveBtn = document.getElementById("tryon-save-btn");
+        const tryonOutputImg = document.getElementById("tryon-output-img");
+        const tryonLoading = document.getElementById("tryon-loading");
+        const tryonImageUpload = document.getElementById("tryon-image-upload");
+        const tryonPreviewContainer = document.getElementById(
+          "tryon-preview-container"
+        );
+        const tryonPreviewImg = document.getElementById("tryon-preview-img");
+
+        let userUploadedImage = null;
+
+        tryonImageUpload.addEventListener("change", (e) => {
+          const file = e.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = (event) => {
+              userUploadedImage = event.target.result;
+              tryonPreviewImg.src = userUploadedImage;
+              tryonOutputImg.src = userUploadedImage;
+              tryonPreviewContainer.classList.remove("hidden");
+              tryonGenerateBtn.disabled = false;
+            };
+            reader.readAsDataURL(file);
+          }
+        });
+
+        tryonGenerateBtn.addEventListener("click", async () => {
+          const prompt = tryonPromptInput.value.trim();
+          if (!prompt) {
+            showMessage(
+              "Input Required",
+              "Please describe the outfit you want to try on."
+            );
+            return;
+          }
+          if (!userUploadedImage) {
+            showMessage(
+              "Image Required",
+              "Please upload a photo of the person to try on the outfit."
+            );
+            return;
+          }
+
+          toggleLoading(tryonLoading, true);
+          tryonGenerateBtn.textContent = "Generating...";
+          tryonGenerateBtn.disabled = true;
+
+          const base64Image = userUploadedImage.split(",")[1];
+          const payload = {
+            contents: [
+              {
+                parts: [
+                  { text: prompt },
+                  {
+                    inlineData: {
+                      mimeType: "image/png",
+                      data: base64Image,
+                    },
+                  },
+                ],
+              },
+            ],
+          };
+
+          const apiKey = "";
+          const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+          try {
+            const response = await fetch(apiUrl, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload),
+            });
+
+            if (!response.ok) {
+              throw new Error("Failed to generate image.");
+            }
+
+            const result = await response.json();
+            const generatedBase64 =
+              result?.candidates?.[0]?.content?.parts?.find((p) => p.inlineData)
+                ?.inlineData?.data;
+
+            if (generatedBase64) {
+              tryonOutputImg.src = `data:image/jpeg;base64,${generatedBase64}`;
+              tryonSaveBtn.classList.remove("hidden");
+              window.generatedFashionData = {
+                title: "AI Outfit",
+                prompt: prompt,
+                imageUrl: tryonOutputImg.src,
+                type: "Fashion",
+              };
+            } else {
+              throw new Error("No image data received from API.");
+            }
+          } catch (error) {
+            console.error("Error generating image:", error);
+            showMessage(
+              "Generation Failed",
+              "Could not generate outfit. Please try again."
+            );
+          } finally {
+            toggleLoading(tryonLoading, false);
+            tryonGenerateBtn.textContent = "Generate Outfit";
+            tryonGenerateBtn.disabled = false;
+          }
+        });
+
+        tryonSaveBtn.addEventListener("click", () => {
+          if (window.generatedFashionData) {
+            window.saveDesign(
+              window.generatedFashionData.title,
+              window.generatedFashionData.prompt,
+              window.generatedFashionData.imageUrl,
+              window.generatedFashionData.type
+            );
+          }
+        });
+      });
+
+      // Decor Visualization Section
+      document.addEventListener("DOMContentLoaded", () => {
+        const decorPromptInput = document.getElementById("decor-prompt");
+        const decorGenerateBtn = document.getElementById("decor-generate-btn");
+        const decorSaveBtn = document.getElementById("decor-save-btn");
+        const decorRoomImg = document.getElementById("decor-room-img");
+        const decorPreviewContainer = document.getElementById(
+          "decor-preview-container"
+        );
+        const decorImageUpload = document.getElementById("decor-image-upload");
+
+        let userUploadedRoomImage = null;
+
+        decorImageUpload.addEventListener("change", (e) => {
+          const file = e.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = (event) => {
+              userUploadedRoomImage = event.target.result;
+              decorRoomImg.src = userUploadedRoomImage;
+            };
+            reader.readAsDataURL(file);
+          }
+        });
+
+        decorGenerateBtn.addEventListener("click", async () => {
+          const prompt = decorPromptInput.value.trim();
+          if (!prompt) {
+            showMessage(
+              "Input Required",
+              "Please describe the decor item you want to generate."
+            );
+            return;
+          }
+          if (!userUploadedRoomImage) {
+            showMessage(
+              "Image Required",
+              "Please upload a photo of your room."
+            );
+            return;
+          }
+
+          decorGenerateBtn.textContent = "Generating...";
+          decorGenerateBtn.disabled = true;
+          const loadingDiv = document.createElement("div");
+          loadingDiv.classList.add(
+            "absolute",
+            "inset-0",
+            "flex",
+            "items-center",
+            "justify-center",
+            "bg-black",
+            "bg-opacity-75"
+          );
+          loadingDiv.innerHTML =
+            '<div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-purple-500"></div>';
+          decorPreviewContainer.appendChild(loadingDiv);
+
+          const base64Image = userUploadedRoomImage.split(",")[1];
+          const payload = {
+            contents: [
+              {
+                parts: [
+                  {
+                    text: `Generate a photorealistic ${prompt} with a transparent background.`,
+                  },
+                  {
+                    inlineData: {
+                      mimeType: "image/png",
+                      data: base64Image,
+                    },
+                  },
+                ],
+              },
+            ],
+            generationConfig: {
+              responseModalities: ["TEXT", "IMAGE"],
+            },
+            model: "gemini-2.5-flash-image-preview",
+          };
+          const apiKey = "";
+          const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image-preview:generateContent?key=${apiKey}`;
+
+          try {
+            const response = await fetch(apiUrl, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload),
+            });
+
+            if (!response.ok) {
+              throw new Error("Failed to generate image.");
+            }
+
+            const result = await response.json();
+            const generatedBase64 =
+              result?.candidates?.[0]?.content?.parts?.find((p) => p.inlineData)
+                ?.inlineData?.data;
+
+            if (generatedBase64) {
+              decorPreviewContainer.innerHTML = "";
+              const decorItemWrapper = document.createElement("div");
+              decorItemWrapper.classList.add(
+                "absolute",
+                "cursor-grab",
+                "p-2",
+                "shadow-lg",
+                "rounded-lg",
+                "transition-transform",
+                "duration-200"
+              );
+              decorItemWrapper.innerHTML = `<img src="data:image/png;base64,${generatedBase64}" class="h-48 w-auto object-contain" alt="Generated Decor Item">`;
+              decorPreviewContainer.appendChild(decorItemWrapper);
+
+              decorSaveBtn.classList.remove("hidden");
+              window.generatedDecorData = {
+                title: "AI Decor Item",
+                prompt: prompt,
+                imageUrl: `data:image/png;base64,${generatedBase64}`,
+                type: "Decor",
+              };
+
+              let isDragging = false;
+              let offsetX, offsetY;
+              const startDrag = (e) => {
+                isDragging = true;
+                decorPreviewContainer.classList.add("cursor-grabbing");
+                const clientX = e.clientX || e.touches[0].clientX;
+                const clientY = e.clientY || e.touches[0].clientY;
+                offsetX = clientX - decorItemWrapper.offsetLeft;
+                offsetY = clientY - decorItemWrapper.offsetTop;
+              };
+              const drag = (e) => {
+                if (!isDragging) return;
+                e.preventDefault();
+                const clientX = e.clientX || e.touches[0].clientX;
+                const clientY = e.clientY || e.touches[0].clientY;
+                let newX = clientX - offsetX;
+                let newY = clientY - offsetY;
+                const containerRect =
+                  decorPreviewContainer.getBoundingClientRect();
+                const wrapperRect = decorItemWrapper.getBoundingClientRect();
+                newX = Math.max(
+                  0,
+                  Math.min(newX, containerRect.width - wrapperRect.width)
+                );
+                newY = Math.max(
+                  0,
+                  Math.min(newY, containerRect.height - wrapperRect.height)
+                );
+                decorItemWrapper.style.left = `${newX}px`;
+                decorItemWrapper.style.top = `${newY}px`;
+              };
+              const stopDrag = () => {
+                isDragging = false;
+                decorPreviewContainer.classList.remove("cursor-grabbing");
+              };
+
+              decorItemWrapper.addEventListener("mousedown", startDrag);
+              document.addEventListener("mousemove", drag);
+              document.addEventListener("mouseup", stopDrag);
+              decorItemWrapper.addEventListener("touchstart", startDrag);
+              document.addEventListener("touchmove", drag);
+              document.addEventListener("touchend", stopDrag);
+            } else {
+              throw new Error("No image data received from API.");
+            }
+          } catch (error) {
+            console.error("Error generating decor image:", error);
+            showMessage(
+              "Generation Failed",
+              "Could not generate decor. Please try again."
+            );
+          } finally {
+            decorGenerateBtn.textContent = "Generate Decor";
+            decorGenerateBtn.disabled = false;
+            if (loadingDiv.parentNode) {
+              loadingDiv.parentNode.removeChild(loadingDiv);
+            }
+          }
+        });
+
+        decorSaveBtn.addEventListener("click", () => {
+          if (window.generatedDecorData) {
+            window.saveDesign(
+              window.generatedDecorData.title,
+              window.generatedDecorData.prompt,
+              window.generatedDecorData.imageUrl,
+              window.generatedDecorData.type
+            );
+          }
+        });
+      });
+
+      // Jewellery & Watches Section
+      document.addEventListener("DOMContentLoaded", () => {
+        const jewelleryPromptInput =
+          document.getElementById("jewellery-prompt");
+        const jewelleryGenerateBtn = document.getElementById(
+          "jewellery-generate-btn"
+        );
+        const jewellerySaveBtn = document.getElementById("jewellery-save-btn");
+        const jewelleryDesignImage = document.getElementById(
+          "jewellery-design-image"
+        );
+        const jewelleryPlaceholder = document.getElementById(
+          "jewellery-placeholder"
+        );
+        const jewelleryLoading = document.getElementById("jewellery-loading");
+
+        jewelleryGenerateBtn.addEventListener("click", async () => {
+          const prompt = jewelleryPromptInput.value.trim();
+          if (!prompt) {
+            showMessage(
+              "Input Required",
+              "Please describe the jewellery or watch design you want."
+            );
+            return;
+          }
+
+          jewelleryGenerateBtn.textContent = "Generating...";
+          jewelleryGenerateBtn.disabled = true;
+          toggleLoading(jewelleryLoading, true);
+
+          try {
+            const fullPrompt = `A high-quality, product photo of a ${prompt} on a clean background.`;
+            const payload = {
+              instances: [{ prompt: fullPrompt }],
+              parameters: { sampleCount: 1 },
+            };
+            const apiKey = "";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:predict?key=${apiKey}`;
+
+            const response = await fetch(apiUrl, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload),
+            });
+
+            if (!response.ok) {
+              throw new Error("Failed to generate image. Please try again.");
+            }
+
+            const result = await response.json();
+            const base64Data = result?.predictions?.[0]?.bytesBase64Encoded;
+
+            if (base64Data) {
+              const imageUrl = `data:image/png;base64,${base64Data}`;
+              jewelleryDesignImage.src = imageUrl;
+              jewelleryDesignImage.classList.remove("hidden");
+              jewelleryPlaceholder.classList.add("hidden");
+              jewellerySaveBtn.classList.remove("hidden");
+              window.generatedJewelleryData = {
+                title: "AI Jewellery/Watch",
+                prompt: prompt,
+                imageUrl: imageUrl,
+                type: "Jewellery & Watches",
+              };
+            } else {
+              throw new Error("No image data received from API.");
+            }
+          } catch (error) {
+            console.error("Error generating jewellery image:", error);
+            showMessage("Generation Failed", error.message);
+          } finally {
+            jewelleryGenerateBtn.textContent = "Generate Design";
+            jewelleryGenerateBtn.disabled = false;
+            toggleLoading(jewelleryLoading, false);
+          }
+        });
+
+        jewellerySaveBtn.addEventListener("click", () => {
+          if (window.generatedJewelleryData) {
+            window.saveDesign(
+              window.generatedJewelleryData.title,
+              window.generatedJewelleryData.prompt,
+              window.generatedJewelleryData.imageUrl,
+              window.generatedJewelleryData.type
+            );
+          }
+        });
+      });
+
+      // Blog Section Search Functionality
+      document.addEventListener("DOMContentLoaded", () => {
+        const blogPosts = [
+          {
+            title: "The Future of Shopping: Virtual Try-on",
+            date: "September 26, 2025",
+            image:
+              "https://placehold.co/800x600/252839/e4e4e7?text=Future+Shopping",
+            content:
+              "Discover how AI-powered virtual try-on is revolutionizing the fashion industry, offering a personalized and convenient shopping experience.",
+            id: "blog-1",
+          },
+          {
+            title: "Designing Your Dream Home with AI",
+            date: "September 24, 2025",
+            image:
+              "https://placehold.co/800x600/252839/e4e4e7?text=AI+Home+Decor",
+            content:
+              "Learn how generative AI is making interior design accessible to everyone, allowing you to visualize furniture and decor in your own space.",
+            id: "blog-2",
+          },
+          {
+            title: "The Rise of Bespoke Jewellery",
+            date: "September 22, 2025",
+            image:
+              "https://placehold.co/800x600/252839/e4e4e7?text=Custom+Jewellery",
+            content:
+              "Explore how AI is empowering consumers to create unique, personalized jewellery and watches, turning a simple idea into a tangible masterpiece.",
+            id: "blog-3",
+          },
+          {
+            title: "5 AI Trends Shaping the Future",
+            date: "October 1, 2025",
+            image: "https://placehold.co/800x600/252839/e4e4e7?text=AI+Trends",
+            content:
+              "A look at the top five artificial intelligence trends that are expected to have a significant impact on technology and daily life in the coming years.",
+            id: "blog-4",
+          },
+          {
+            title: "NLP and the Conversational Experience",
+            date: "September 30, 2025",
+            image: "https://placehold.co/800x600/252839/e4e4e7?text=NLP+Blog",
+            content:
+              "Natural Language Processing (NLP) is at the core of AI models. This article dives into how NLP is improving communication between humans and machines, creating more intuitive user interfaces.",
+            id: "blog-5",
+          },
+        ];
+
+        const blogContainer = document.getElementById("blog-posts-container");
+        const searchInput = document.getElementById("blog-search-input");
+
+        const renderBlogPosts = (posts) => {
+          blogContainer.innerHTML = ""; // Clear the container
+          if (posts.length === 0) {
+            blogContainer.innerHTML = `<p class="text-center text-gray-400 col-span-full">No articles found matching your search.</p>`;
+            return;
+          }
+          posts.forEach((post) => {
+            const article = document.createElement("div");
+            article.classList.add("card", "p-6");
+            article.innerHTML = `
+              <h3 class="text-xl font-bold mb-2">${post.title}</h3>
+              <p class="text-gray-400 text-sm mb-4">Posted on ${post.date}</p>
+              <img src="${post.image}" alt="${post.title}" class="rounded-xl mb-4 w-full h-48 object-cover" />
+              <p class="text-gray-300 mb-4">${post.content}</p>
+              <a href="#" class="text-cyan-500 hover:underline">Read More &rarr;</a>
+            `;
+            blogContainer.appendChild(article);
+          });
+        };
+
+        const filterPosts = (query) => {
+          const lowerCaseQuery = query.toLowerCase();
+          return blogPosts.filter(
+            (post) =>
+              post.title.toLowerCase().includes(lowerCaseQuery) ||
+              post.content.toLowerCase().includes(lowerCaseQuery)
+          );
+        };
+
+        // Initial render
+        renderBlogPosts(blogPosts);
+
+        // Add event listener for real-time search
+        searchInput.addEventListener("input", (e) => {
+          const query = e.target.value;
+          const filtered = filterPosts(query);
+          renderBlogPosts(filtered);
+        });
+      });
+    </script>
+  </body>
+</html>
