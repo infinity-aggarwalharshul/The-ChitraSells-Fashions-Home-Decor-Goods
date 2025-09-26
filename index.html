@@ -14,7 +14,7 @@
     />
     <meta
       name="keywords"
-      content="AI fashion, virtual try-on, AI home decor, generative AI, virtual visualization, custom jewellery, AI watches, personalized designs, The ChitraSells, AI blog, tech trends, future of e-commerce"
+      content="AI fashion, virtual try-on, AI home decor, generative AI, virtual visualization, custom jewellery, AI watches, personalized designs, The ChitraSells, AI blog, tech trends, future of e-commerce, NLP, Google Cloud, Gemini API"
     />
     <meta name="author" content="The ChitraSells" />
     <link rel="canonical" href="https://yourwebsite.com/the-chitrasells" />
@@ -60,47 +60,76 @@
         overflow-x: hidden;
       }
       h1,
-      h2 {
+      h2,
+      h3 {
         font-family: "Playfair Display", serif;
       }
       .btn-primary {
-        padding: 0.75rem 2rem;
-        background: linear-gradient(to right, #a78bfa, #00bcd4);
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+        background: linear-gradient(
+          to right,
+          #a78bfa,
+          #06b6d4
+        ); /* from-purple-500 to-cyan-500 */
         color: #fff;
         font-weight: bold;
         border-radius: 9999px;
-        box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.15);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
         transition: transform 0.3s, box-shadow 0.3s;
         outline: none;
-        border: none;
       }
-      .btn-primary:hover,
-      .btn-primary:focus {
+      .btn-primary:hover {
         transform: scale(1.05);
-        box-shadow: 0 8px 24px 0 rgba(146, 117, 210, 0.5);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 8px 10px -6px rgba(0, 0, 0, 0.1);
+      }
+      .btn-primary:focus {
+        box-shadow: 0 0 0 4px rgba(168, 139, 250, 0.5); /* focus:ring-purple-500 */
+      }
+      .btn-ai-suggestion {
+        background: linear-gradient(
+          to right,
+          #6d28d9,
+          #9333ea
+        ); /* from-violet-700 to-purple-600 */
+        border: 1px solid #a855f7; /* border-purple-500 */
+      }
+      .btn-ai-suggestion:hover {
+        background: linear-gradient(
+          to right,
+          #7e22ce,
+          #a855f7
+        ); /* hover:from-purple-600 hover:to-purple-500 */
       }
       .btn-secondary {
-        padding: 0.75rem 2rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
         background: #fff;
-        color: #1a1a2e;
+        color: #111827; /* text-gray-900 */
         font-weight: bold;
         border-radius: 9999px;
-        box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.15);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+          0 4px 6px -2px rgba(0, 0, 0, 0.05);
         transition: transform 0.3s, box-shadow 0.3s;
         outline: none;
-        border: none;
       }
-      .btn-secondary:hover,
-      .btn-secondary:focus {
+      .btn-secondary:hover {
         transform: scale(1.05);
-        box-shadow: 0 8px 24px 0 rgba(146, 117, 210, 0.5);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 8px 10px -6px rgba(0, 0, 0, 0.1);
       }
       .card {
-        background-color: #27272a;
+        background-color: #1f2937; /* bg-gray-800 */
         border-radius: 1.5rem;
         padding: 1.5rem;
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
-        border: 1px solid #3f3f46;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        border: 1px solid #374151; /* border-gray-700 */
         transition: box-shadow 0.5s;
       }
       .card:hover {
@@ -109,51 +138,76 @@
       .input-field {
         width: 100%;
         padding: 1rem;
-        background: #18181b;
-        border: 1px solid #3f3f46;
+        background-color: #111827; /* bg-gray-900 */
+        border: 1px solid #374151; /* border-gray-700 */
         border-radius: 0.75rem;
         color: #fff;
         transition: border-color 0.2s, box-shadow 0.2s;
       }
       .input-field::placeholder {
-        color: #71717a;
+        color: #6b7280; /* placeholder-gray-500 */
       }
       .input-field:focus {
-        border-color: #00bcd4;
-        box-shadow: 0 0 0 2px #00bcd4;
-        outline: none;
+        border-color: #06b6d4; /* focus:border-cyan-500 */
+        box-shadow: 0 0 0 2px #06b6d4; /* focus:ring-cyan-500 */
       }
-      .skeleton {
-        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        background-color: #3f3f46;
+      .accordion-item {
+        border-bottom: 1px solid #4a5568;
       }
-      @keyframes pulse {
-        0%,
-        100% {
-          opacity: 1;
+      .accordion-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 1.5rem;
+        cursor: pointer;
+        font-size: 1.125rem; /* text-lg */
+        font-weight: 600; /* font-semibold */
+      }
+      .accordion-content {
+        padding: 0 1.5rem 1rem;
+        color: #9ca3af; /* text-gray-400 */
+        transition: max-height 0.3s ease-in-out;
+        max-height: 0;
+        overflow: hidden;
+      }
+      .accordion-content.active {
+        max-height: 500px; /* A value large enough to show content */
+      }
+      .accordion-header .icon {
+        transform: none;
+        transition: transform 0.3s;
+      }
+      .accordion-header.active .icon {
+        transform: rotate(45deg);
+      }
+      /* Marquee styles */
+      .marquee-container {
+        background-color: #111827;
+        padding: 0.5rem 0;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+      .marquee-text {
+        display: inline-block;
+        font-size: 1.25rem;
+        font-weight: 700;
+        font-family: "Playfair Display", serif;
+        color: var(--accent-cyan);
+        text-shadow: 0 0 10px var(--accent-cyan), 0 0 20px var(--accent-purple);
+        animation: marquee 25s linear infinite;
+        will-change: transform;
+      }
+      @keyframes marquee {
+        from {
+          transform: translateX(100vw);
         }
-        50% {
-          opacity: 0.5;
+        to {
+          transform: translateX(-100%);
         }
-      }
-      #message-box {
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        z-index: 1000;
       }
     </style>
   </head>
   <body class="bg-primary">
-    <div
-      id="loading-spinner"
-      class="hidden fixed inset-0 z-[999] bg-black bg-opacity-75 flex items-center justify-center"
-    >
-      <div
-        class="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-purple-500"
-      ></div>
-    </div>
-
     <!-- Custom Firebase Script -->
     <script type="module">
       import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
@@ -166,14 +220,10 @@
       import {
         getFirestore,
         doc,
-        getDoc,
         setDoc,
         onSnapshot,
         collection,
-        query,
-        where,
         addDoc,
-        getDocs,
         deleteDoc,
       } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
       import { setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
@@ -225,21 +275,15 @@
           onAuthStateChanged(auth, async (user) => {
             if (user) {
               userId = user.uid;
-              document.getElementById(
-                "user-id-display"
-              ).textContent = `User ID: ${userId}`;
+              // User is signed in, load their designs.
               document
                 .getElementById("my-designs-section")
                 .classList.remove("hidden");
-              document
-                .getElementById("my-designs-section")
-                .scrollIntoView({ behavior: "smooth" });
               loadDesigns();
             } else {
               console.log("User is signed out.");
               userId = null;
-              document.getElementById("user-id-display").textContent =
-                "Signed Out";
+              // User is signed out, hide their designs section.
               document
                 .getElementById("my-designs-section")
                 .classList.add("hidden");
@@ -348,9 +392,14 @@
       window.saveDesign = saveDesign;
     </script>
 
+    <!-- Marquee Banner -->
+    <div class="marquee-container">
+      <span class="marquee-text">The ChitraSells</span>
+    </div>
+
     <!-- Navigation Header -->
     <header
-      class="p-4 md:p-6 bg-secondary shadow-md flex justify-between items-center z-50"
+      class="p-4 md:p-6 bg-secondary shadow-md flex justify-between items-center z-50 sticky top-0"
     >
       <div class="flex items-center space-x-4">
         <img
@@ -362,18 +411,44 @@
           The ChitraSells
         </h1>
       </div>
-      <div class="flex items-center space-x-4">
-        <span
-          id="user-id-display"
-          class="text-xs text-gray-400 truncate max-w-[100px] sm:max-w-none"
-          >...</span
+      <nav class="hidden md:flex items-center space-x-6">
+        <a
+          href="#home-section"
+          class="text-gray-300 hover:text-white transition-colors font-semibold"
+          >Home</a
         >
-      </div>
+        <a
+          href="#fashion-section"
+          class="text-gray-300 hover:text-white transition-colors font-semibold"
+          >Fashion</a
+        >
+        <a
+          href="#decor-section"
+          class="text-gray-300 hover:text-white transition-colors font-semibold"
+          >Decor</a
+        >
+        <a
+          href="#jewellery-section"
+          class="text-gray-300 hover:text-white transition-colors font-semibold"
+          >Jewellery</a
+        >
+        <a
+          href="#about-us"
+          class="text-gray-300 hover:text-white transition-colors font-semibold"
+          >About</a
+        >
+        <a
+          href="#contact"
+          class="text-gray-300 hover:text-white transition-colors font-semibold"
+          >Contact</a
+        >
+      </nav>
     </header>
 
     <main class="container mx-auto p-4 md:p-8 space-y-24">
-      <!-- Hero Section -->
+      <!-- Hero Section (Home) -->
       <section
+        id="home-section"
         class="text-center py-20 md:py-32 space-y-6 bg-secondary rounded-3xl shadow-xl border border-gray-700"
       >
         <h2
@@ -386,7 +461,7 @@
         </h2>
         <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
           Create, visualize, and save unique designs for fashion, decor, and
-          more.
+          more using the power of AI and Natural Language Processing.
         </p>
         <div class="flex justify-center space-x-4">
           <a href="#fashion-section" class="btn-primary"
@@ -397,8 +472,6 @@
           >
         </div>
       </section>
-
-      ---
 
       <!-- Fashion Try-On Section -->
       <section id="fashion-section" class="py-12">
@@ -444,14 +517,23 @@
                 placeholder="E.g., A sleek black leather jacket with a white t-shirt and ripped blue jeans."
               ></textarea>
             </div>
-            <button
-              id="tryon-generate-btn"
-              class="btn-primary w-full flex items-center justify-center gap-2"
-              aria-label="Generate outfit"
-              disabled
-            >
-              Generate Outfit
-            </button>
+            <div class="grid grid-cols-2 gap-4">
+              <button
+                id="tryon-generate-btn"
+                class="btn-primary w-full flex items-center justify-center gap-2"
+                aria-label="Generate outfit"
+                disabled
+              >
+                Generate
+              </button>
+              <button
+                id="suggest-fashion-btn"
+                class="btn-primary btn-ai-suggestion w-full flex items-center justify-center gap-2"
+                aria-label="Suggest outfit idea"
+              >
+                ✨ Suggest
+              </button>
+            </div>
             <button
               id="tryon-save-btn"
               class="btn-secondary w-full flex items-center justify-center gap-2 hidden"
@@ -497,18 +579,10 @@
                 alt="Uploaded user photo for virtual fashion try-on"
                 class="absolute inset-0 w-full h-full object-cover"
               />
-              <div
-                id="tryon-preview-overlay"
-                class="absolute inset-0 flex items-center justify-center text-white text-lg font-bold"
-              >
-                Image Preview
-              </div>
             </div>
           </div>
         </div>
       </section>
-
-      ---
 
       <!-- Decor Visualization Section -->
       <section id="decor-section" class="py-12">
@@ -546,13 +620,22 @@
                 placeholder="E.g., A minimalist wooden coffee table with a glass top."
               ></textarea>
             </div>
-            <button
-              id="decor-generate-btn"
-              class="btn-primary w-full flex items-center justify-center gap-2"
-              aria-label="Generate decor item"
-            >
-              Generate Decor
-            </button>
+            <div class="grid grid-cols-2 gap-4">
+              <button
+                id="decor-generate-btn"
+                class="btn-primary w-full flex items-center justify-center gap-2"
+                aria-label="Generate decor item"
+              >
+                Generate
+              </button>
+              <button
+                id="suggest-decor-btn"
+                class="btn-primary btn-ai-suggestion w-full flex items-center justify-center gap-2"
+                aria-label="Suggest decor idea"
+              >
+                ✨ Suggest
+              </button>
+            </div>
             <button
               id="decor-save-btn"
               class="btn-secondary w-full flex items-center justify-center gap-2 hidden"
@@ -591,8 +674,6 @@
           </div>
         </div>
       </section>
-
-      ---
 
       <!-- Jewellery & Watches Section -->
       <section id="jewellery-section" class="py-12">
@@ -646,13 +727,22 @@
                 placeholder="E.g., A minimalist silver watch with a dark blue face and a leather strap."
               ></textarea>
             </div>
-            <button
-              id="jewellery-generate-btn"
-              class="btn-primary w-full flex items-center justify-center gap-2"
-              aria-label="Generate jewellery design"
-            >
-              Generate Design
-            </button>
+            <div class="grid grid-cols-2 gap-4">
+              <button
+                id="jewellery-generate-btn"
+                class="btn-primary w-full flex items-center justify-center gap-2"
+                aria-label="Generate jewellery design"
+              >
+                Generate
+              </button>
+              <button
+                id="suggest-jewellery-btn"
+                class="btn-primary btn-ai-suggestion w-full flex items-center justify-center gap-2"
+                aria-label="Suggest jewellery idea"
+              >
+                ✨ Suggest
+              </button>
+            </div>
             <button
               id="jewellery-save-btn"
               class="btn-secondary w-full flex items-center justify-center gap-2 hidden"
@@ -663,8 +753,6 @@
           </div>
         </div>
       </section>
-
-      ---
 
       <!-- Blog Section for Content Expansion with Search -->
       <section id="blog-section" class="py-12">
@@ -710,8 +798,6 @@
         </div>
       </section>
 
-      ---
-
       <!-- My Designs Section -->
       <section id="my-designs-section" class="py-12 hidden">
         <div class="text-center mb-12 space-y-4">
@@ -727,13 +813,49 @@
           class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
         >
           <!-- Designs will be loaded here dynamically -->
-          <p class="text-center text-gray-400 col-span-full">
-            Loading your designs...
-          </p>
         </div>
       </section>
 
-      ---
+      <!-- AI & NLP Technology Section -->
+      <section id="ai-nlp-section" class="py-12">
+        <div class="text-center mb-12 space-y-4">
+          <h2 class="text-3xl md:text-5xl font-bold text-white">
+            Our Technology: AI & NLP
+          </h2>
+          <p class="text-gray-400 max-w-2xl mx-auto">
+            We use state-of-the-art AI and Natural Language Processing (NLP) to
+            turn your text descriptions into stunning visual designs.
+          </p>
+        </div>
+        <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
+          <div class="card p-8">
+            <h3 class="text-2xl font-bold text-white mb-4">
+              Generative AI Models
+            </h3>
+            <p class="text-gray-400">
+              Our platform is powered by advanced generative AI models like
+              Google's Gemini and Imagen. These models have been trained on vast
+              datasets of images and text, allowing them to create novel,
+              high-quality images from your prompts. When you describe an outfit
+              or a piece of jewellery, our AI interprets your words and
+              generates a unique visual representation.
+            </p>
+          </div>
+          <div class="card p-8">
+            <h3 class="text-2xl font-bold text-white mb-4">
+              Natural Language Processing (NLP)
+            </h3>
+            <p class="text-gray-400">
+              NLP is the bridge between your ideas and our AI. This technology
+              allows our system to understand the nuances of human language. It
+              breaks down your prompts, identifies key elements like objects,
+              styles, and colors, and translates them into instructions that the
+              generative AI can use to create the final image. The better the
+              prompt, the more accurate the result.
+            </p>
+          </div>
+        </div>
+      </section>
 
       <!-- About Us Section -->
       <section id="about-us" class="py-12">
@@ -751,7 +873,82 @@
         </div>
       </section>
 
-      ---
+      <!-- FAQ Section -->
+      <section id="faq-section" class="py-12">
+        <div class="text-center mb-12 space-y-4">
+          <h2 class="text-3xl md:text-5xl font-bold text-white">
+            Frequently Asked Questions
+          </h2>
+          <p class="text-gray-400 max-w-xl mx-auto">
+            Find quick answers to common questions about our AI tools.
+          </p>
+        </div>
+        <div
+          class="max-w-3xl mx-auto bg-gray-800 rounded-3xl shadow-xl border border-gray-700"
+        >
+          <!-- FAQ Item 1 -->
+          <div class="accordion-item">
+            <div class="accordion-header" role="button" aria-expanded="false">
+              <span>How does the virtual try-on feature work?</span>
+              <span class="icon">+</span>
+            </div>
+            <div class="accordion-content">
+              <p>
+                Our virtual try-on tool uses advanced generative AI. You upload
+                a clear photo of a person, and our AI model generates a new
+                image with the described outfit seamlessly integrated onto the
+                person in your photo. It works best with full-body or upper-body
+                shots with a simple background.
+              </p>
+            </div>
+          </div>
+          <!-- FAQ Item 2 -->
+          <div class="accordion-item">
+            <div class="accordion-header" role="button" aria-expanded="false">
+              <span>What kind of images can I upload?</span>
+              <span class="icon">+</span>
+            </div>
+            <div class="accordion-content">
+              <p>
+                For the virtual try-on, please upload a well-lit, clear photo of
+                a person. For the home decor visualization, upload a photo of
+                your room. The clearer the photo, the better the AI results will
+                be.
+              </p>
+            </div>
+          </div>
+          <!-- FAQ Item 3 -->
+          <div class="accordion-item">
+            <div class="accordion-header" role="button" aria-expanded="false">
+              <span>Are my uploaded images saved?</span>
+              <span class="icon">+</span>
+            </div>
+            <div class="accordion-content">
+              <p>
+                No, your uploaded images are not permanently saved. They are
+                used for a single AI generation session and are then discarded
+                to protect your privacy. Only the designs you choose to save
+                will be stored in your personal gallery.
+              </p>
+            </div>
+          </div>
+          <!-- FAQ Item 4 -->
+          <div class="accordion-item">
+            <div class="accordion-header" role="button" aria-expanded="false">
+              <span>How do I save a design to my gallery?</span>
+              <span class="icon">+</span>
+            </div>
+            <div class="accordion-content">
+              <p>
+                After the AI generates a design, a "Save Design" button will
+                appear. Click this button to save the design to your private
+                gallery, which can be viewed in the "My Saved Designs" section
+                of the site.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <!-- Contact Section -->
       <section id="contact" class="py-12">
@@ -764,12 +961,7 @@
           </p>
         </div>
         <div class="max-w-xl mx-auto card p-8 space-y-6">
-          <form
-            id="contact-form"
-            action="#"
-            method="POST"
-            aria-label="Contact Form"
-          >
+          <form id="contact-form" aria-label="Contact Form">
             <div>
               <label
                 for="name"
@@ -827,6 +1019,45 @@
       </section>
     </main>
 
+    <!-- Suggestion Modal -->
+    <div
+      id="suggestion-modal"
+      class="fixed inset-0 z-50 bg-black bg-opacity-75 flex items-center justify-center hidden"
+    >
+      <div class="card max-w-lg w-full space-y-4">
+        <h3 id="modal-title" class="text-2xl font-bold text-white text-center">
+          Get an AI-Powered Suggestion
+        </h3>
+        <div>
+          <label
+            for="modal-keywords"
+            class="block text-sm font-medium text-gray-300 mb-2"
+            >Enter some keywords (e.g., "summer, casual, blue"):</label
+          >
+          <input
+            type="text"
+            id="modal-keywords"
+            class="input-field"
+            placeholder="Keywords..."
+          />
+        </div>
+        <div id="modal-loader" class="text-center hidden">
+          <div
+            class="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-purple-500 mx-auto"
+          ></div>
+          <p class="mt-2 text-gray-400">Gemini is thinking...</p>
+        </div>
+        <div class="flex gap-4">
+          <button id="modal-generate-btn" class="btn-primary w-full">
+            Generate Suggestion
+          </button>
+          <button id="modal-close-btn" class="btn-secondary w-full">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-secondary text-gray-400 py-12 px-8">
       <div
@@ -846,6 +1077,11 @@
           <h4 class="text-white font-semibold">Quick Links</h4>
           <ul class="space-y-1">
             <li>
+              <a href="#home-section" class="hover:text-white transition-colors"
+                >Home</a
+              >
+            </li>
+            <li>
               <a
                 href="#fashion-section"
                 class="hover:text-white transition-colors"
@@ -853,22 +1089,23 @@
               >
             </li>
             <li>
-              <a
-                href="#decor-section"
-                class="hover:text-white transition-colors"
-                >Home Decor</a
+              <a href="#about-us" class="hover:text-white transition-colors"
+                >About Us</a
               >
             </li>
             <li>
-              <a
-                href="#jewellery-section"
-                class="hover:text-white transition-colors"
-                >Jewellery & Watches</a
+              <a href="#faq-section" class="hover:text-white transition-colors"
+                >FAQs</a
               >
             </li>
             <li>
-              <a href="#blog-section" class="hover:text-white transition-colors"
-                >Blogs</a
+              <a href="privacy.html" class="hover:text-white transition-colors"
+                >Privacy Policy</a
+              >
+            </li>
+            <li>
+              <a href="terms.html" class="hover:text-white transition-colors"
+                >Terms & Conditions</a
               >
             </li>
             <li>
@@ -879,10 +1116,9 @@
           </ul>
         </div>
 
-        <!-- Contact Info & Social -->
+        <!-- Social Media -->
         <div class="space-y-2">
           <h4 class="text-white font-semibold">Follow Us</h4>
-          <p class="text-sm">Stay up-to-date with our latest AI innovations.</p>
           <div class="flex justify-center md:justify-start space-x-4 mt-2">
             <!-- Placeholder social icons -->
             <a href="#" aria-label="Follow us on Twitter"
@@ -896,7 +1132,6 @@
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                class="feather feather-twitter"
               >
                 <path
                   d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3.84 9.42 9.42 0 0 1-6.79-2.92c-.22.42-.4.85-.5 1.3.1.2.2.4.3.6a4.48 4.48 0 0 1-2-1.93c.14.4.3.8.5 1.2a4.48 4.48 0 0 0 3.12 3.1c-.26.07-.52.1-.78.1-.19 0-.38-.01-.57-.03 1.15 3.17 4.23 5.51 7.9 5.51a9.42 9.42 0 0 1-5.83 2c-.18 0-.35-.01-.52-.02a10.95 10.95 0 0 0 5.92 1.74c6.7 0 10.36-5.54 10.36-10.36 0-.16-.01-.33-.02-.49.71-.51 1.33-1.15 1.8-1.88z"
@@ -913,30 +1148,10 @@
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                class="feather feather-instagram"
               >
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
                 <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg
-            ></a>
-            <a href="#" aria-label="Follow us on LinkedIn"
-              ><svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                class="feather feather-linkedin"
-              >
-                <path
-                  d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
-                />
-                <rect x="2" y="9" width="4" height="12" />
-                <circle cx="4" cy="4" r="2" /></svg
             ></a>
           </div>
         </div>
@@ -961,12 +1176,6 @@
     </div>
 
     <script type="module">
-      import {
-        getAuth,
-        signInAnonymously,
-        signInWithCustomToken,
-      } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-
       const showMessage = (title, message) => {
         const msgBox = document.getElementById("message-box");
         const msgText = document.getElementById("message-text");
@@ -978,12 +1187,20 @@
             ? `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`
             : `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`;
 
-        msgBox.classList.remove("hidden", "opacity-0", "translate-y-4");
+        msgBox.classList.remove(
+          "opacity-0",
+          "translate-y-4",
+          "pointer-events-none"
+        );
         msgBox.classList.add("opacity-100", "translate-y-0");
 
         setTimeout(() => {
-          msgBox.classList.add("opacity-0", "translate-y-4");
-          setTimeout(() => msgBox.classList.add("hidden"), 300);
+          msgBox.classList.remove("opacity-100", "translate-y-0");
+          msgBox.classList.add(
+            "opacity-0",
+            "translate-y-4",
+            "pointer-events-none"
+          );
         }, 5000);
       };
 
@@ -994,6 +1211,18 @@
           element.classList.add("hidden");
         }
       };
+
+      // Contact Form Submission
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          showMessage(
+            "Success!",
+            "Your message has been sent. We will get back to you shortly."
+          );
+          this.reset();
+        });
 
       // Fashion Try-On Section
       document.addEventListener("DOMContentLoaded", () => {
@@ -1017,7 +1246,7 @@
             reader.onload = (event) => {
               userUploadedImage = event.target.result;
               tryonPreviewImg.src = userUploadedImage;
-              tryonOutputImg.src = userUploadedImage;
+              tryonOutputImg.src = userUploadedImage; // Show preview in main image area as well
               tryonPreviewContainer.classList.remove("hidden");
               tryonGenerateBtn.disabled = false;
             };
@@ -1027,17 +1256,10 @@
 
         tryonGenerateBtn.addEventListener("click", async () => {
           const prompt = tryonPromptInput.value.trim();
-          if (!prompt) {
+          if (!prompt || !userUploadedImage) {
             showMessage(
               "Input Required",
-              "Please describe the outfit you want to try on."
-            );
-            return;
-          }
-          if (!userUploadedImage) {
-            showMessage(
-              "Image Required",
-              "Please upload a photo of the person to try on the outfit."
+              "Please upload a photo and describe the outfit."
             );
             return;
           }
@@ -1052,19 +1274,14 @@
               {
                 parts: [
                   { text: prompt },
-                  {
-                    inlineData: {
-                      mimeType: "image/png",
-                      data: base64Image,
-                    },
-                  },
+                  { inlineData: { mimeType: "image/png", data: base64Image } },
                 ],
               },
             ],
+            generationConfig: { responseModalities: ["IMAGE"] },
           };
-
           const apiKey = "";
-          const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+          const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image-preview:generateContent?key=${apiKey}`;
 
           try {
             const response = await fetch(apiUrl, {
@@ -1072,11 +1289,8 @@
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify(payload),
             });
-
-            if (!response.ok) {
-              throw new Error("Failed to generate image.");
-            }
-
+            if (!response.ok)
+              throw new Error(`HTTP error! status: ${response.status}`);
             const result = await response.json();
             const generatedBase64 =
               result?.candidates?.[0]?.content?.parts?.find((p) => p.inlineData)
@@ -1102,215 +1316,17 @@
             );
           } finally {
             toggleLoading(tryonLoading, false);
-            tryonGenerateBtn.textContent = "Generate Outfit";
+            tryonGenerateBtn.textContent = "Generate";
             tryonGenerateBtn.disabled = false;
           }
         });
 
-        tryonSaveBtn.addEventListener("click", () => {
-          if (window.generatedFashionData) {
-            window.saveDesign(
-              window.generatedFashionData.title,
-              window.generatedFashionData.prompt,
-              window.generatedFashionData.imageUrl,
-              window.generatedFashionData.type
-            );
-          }
-        });
-      });
-
-      // Decor Visualization Section
-      document.addEventListener("DOMContentLoaded", () => {
-        const decorPromptInput = document.getElementById("decor-prompt");
-        const decorGenerateBtn = document.getElementById("decor-generate-btn");
-        const decorSaveBtn = document.getElementById("decor-save-btn");
-        const decorRoomImg = document.getElementById("decor-room-img");
-        const decorPreviewContainer = document.getElementById(
-          "decor-preview-container"
+        tryonSaveBtn.addEventListener(
+          "click",
+          () =>
+            window.generatedFashionData &&
+            window.saveDesign(...Object.values(window.generatedFashionData))
         );
-        const decorImageUpload = document.getElementById("decor-image-upload");
-
-        let userUploadedRoomImage = null;
-
-        decorImageUpload.addEventListener("change", (e) => {
-          const file = e.target.files[0];
-          if (file) {
-            const reader = new FileReader();
-            reader.onload = (event) => {
-              userUploadedRoomImage = event.target.result;
-              decorRoomImg.src = userUploadedRoomImage;
-            };
-            reader.readAsDataURL(file);
-          }
-        });
-
-        decorGenerateBtn.addEventListener("click", async () => {
-          const prompt = decorPromptInput.value.trim();
-          if (!prompt) {
-            showMessage(
-              "Input Required",
-              "Please describe the decor item you want to generate."
-            );
-            return;
-          }
-          if (!userUploadedRoomImage) {
-            showMessage(
-              "Image Required",
-              "Please upload a photo of your room."
-            );
-            return;
-          }
-
-          decorGenerateBtn.textContent = "Generating...";
-          decorGenerateBtn.disabled = true;
-          const loadingDiv = document.createElement("div");
-          loadingDiv.classList.add(
-            "absolute",
-            "inset-0",
-            "flex",
-            "items-center",
-            "justify-center",
-            "bg-black",
-            "bg-opacity-75"
-          );
-          loadingDiv.innerHTML =
-            '<div class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-purple-500"></div>';
-          decorPreviewContainer.appendChild(loadingDiv);
-
-          const base64Image = userUploadedRoomImage.split(",")[1];
-          const payload = {
-            contents: [
-              {
-                parts: [
-                  {
-                    text: `Generate a photorealistic ${prompt} with a transparent background.`,
-                  },
-                  {
-                    inlineData: {
-                      mimeType: "image/png",
-                      data: base64Image,
-                    },
-                  },
-                ],
-              },
-            ],
-            generationConfig: {
-              responseModalities: ["TEXT", "IMAGE"],
-            },
-            model: "gemini-2.5-flash-image-preview",
-          };
-          const apiKey = "";
-          const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image-preview:generateContent?key=${apiKey}`;
-
-          try {
-            const response = await fetch(apiUrl, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(payload),
-            });
-
-            if (!response.ok) {
-              throw new Error("Failed to generate image.");
-            }
-
-            const result = await response.json();
-            const generatedBase64 =
-              result?.candidates?.[0]?.content?.parts?.find((p) => p.inlineData)
-                ?.inlineData?.data;
-
-            if (generatedBase64) {
-              decorPreviewContainer.innerHTML = "";
-              const decorItemWrapper = document.createElement("div");
-              decorItemWrapper.classList.add(
-                "absolute",
-                "cursor-grab",
-                "p-2",
-                "shadow-lg",
-                "rounded-lg",
-                "transition-transform",
-                "duration-200"
-              );
-              decorItemWrapper.innerHTML = `<img src="data:image/png;base64,${generatedBase64}" class="h-48 w-auto object-contain" alt="Generated Decor Item">`;
-              decorPreviewContainer.appendChild(decorItemWrapper);
-
-              decorSaveBtn.classList.remove("hidden");
-              window.generatedDecorData = {
-                title: "AI Decor Item",
-                prompt: prompt,
-                imageUrl: `data:image/png;base64,${generatedBase64}`,
-                type: "Decor",
-              };
-
-              let isDragging = false;
-              let offsetX, offsetY;
-              const startDrag = (e) => {
-                isDragging = true;
-                decorPreviewContainer.classList.add("cursor-grabbing");
-                const clientX = e.clientX || e.touches[0].clientX;
-                const clientY = e.clientY || e.touches[0].clientY;
-                offsetX = clientX - decorItemWrapper.offsetLeft;
-                offsetY = clientY - decorItemWrapper.offsetTop;
-              };
-              const drag = (e) => {
-                if (!isDragging) return;
-                e.preventDefault();
-                const clientX = e.clientX || e.touches[0].clientX;
-                const clientY = e.clientY || e.touches[0].clientY;
-                let newX = clientX - offsetX;
-                let newY = clientY - offsetY;
-                const containerRect =
-                  decorPreviewContainer.getBoundingClientRect();
-                const wrapperRect = decorItemWrapper.getBoundingClientRect();
-                newX = Math.max(
-                  0,
-                  Math.min(newX, containerRect.width - wrapperRect.width)
-                );
-                newY = Math.max(
-                  0,
-                  Math.min(newY, containerRect.height - wrapperRect.height)
-                );
-                decorItemWrapper.style.left = `${newX}px`;
-                decorItemWrapper.style.top = `${newY}px`;
-              };
-              const stopDrag = () => {
-                isDragging = false;
-                decorPreviewContainer.classList.remove("cursor-grabbing");
-              };
-
-              decorItemWrapper.addEventListener("mousedown", startDrag);
-              document.addEventListener("mousemove", drag);
-              document.addEventListener("mouseup", stopDrag);
-              decorItemWrapper.addEventListener("touchstart", startDrag);
-              document.addEventListener("touchmove", drag);
-              document.addEventListener("touchend", stopDrag);
-            } else {
-              throw new Error("No image data received from API.");
-            }
-          } catch (error) {
-            console.error("Error generating decor image:", error);
-            showMessage(
-              "Generation Failed",
-              "Could not generate decor. Please try again."
-            );
-          } finally {
-            decorGenerateBtn.textContent = "Generate Decor";
-            decorGenerateBtn.disabled = false;
-            if (loadingDiv.parentNode) {
-              loadingDiv.parentNode.removeChild(loadingDiv);
-            }
-          }
-        });
-
-        decorSaveBtn.addEventListener("click", () => {
-          if (window.generatedDecorData) {
-            window.saveDesign(
-              window.generatedDecorData.title,
-              window.generatedDecorData.prompt,
-              window.generatedDecorData.imageUrl,
-              window.generatedDecorData.type
-            );
-          }
-        });
       });
 
       // Jewellery & Watches Section
@@ -1334,19 +1350,21 @@
           if (!prompt) {
             showMessage(
               "Input Required",
-              "Please describe the jewellery or watch design you want."
+              "Please describe the design you want."
             );
             return;
           }
 
-          jewelleryGenerateBtn.textContent = "Generating...";
-          jewelleryGenerateBtn.disabled = true;
           toggleLoading(jewelleryLoading, true);
+          jewelleryGenerateBtn.disabled = true;
 
           try {
-            const fullPrompt = `A high-quality, product photo of a ${prompt} on a clean background.`;
             const payload = {
-              instances: [{ prompt: fullPrompt }],
+              instances: [
+                {
+                  prompt: `A high-quality product photo of a ${prompt} on a clean, white background.`,
+                },
+              ],
               parameters: { sampleCount: 1 },
             };
             const apiKey = "";
@@ -1358,9 +1376,7 @@
               body: JSON.stringify(payload),
             });
 
-            if (!response.ok) {
-              throw new Error("Failed to generate image. Please try again.");
-            }
+            if (!response.ok) throw new Error("Failed to generate image.");
 
             const result = await response.json();
             const base64Data = result?.predictions?.[0]?.bytesBase64Encoded;
@@ -1373,33 +1389,31 @@
               jewellerySaveBtn.classList.remove("hidden");
               window.generatedJewelleryData = {
                 title: "AI Jewellery/Watch",
-                prompt: prompt,
-                imageUrl: imageUrl,
-                type: "Jewellery & Watches",
+                prompt,
+                imageUrl,
+                type: "Jewellery",
               };
             } else {
-              throw new Error("No image data received from API.");
+              throw new Error("No image data in API response.");
             }
           } catch (error) {
-            console.error("Error generating jewellery image:", error);
-            showMessage("Generation Failed", error.message);
+            console.error("Jewellery generation error:", error);
+            showMessage(
+              "Generation Failed",
+              "Could not generate design. Please try again."
+            );
           } finally {
-            jewelleryGenerateBtn.textContent = "Generate Design";
-            jewelleryGenerateBtn.disabled = false;
             toggleLoading(jewelleryLoading, false);
+            jewelleryGenerateBtn.disabled = false;
           }
         });
 
-        jewellerySaveBtn.addEventListener("click", () => {
-          if (window.generatedJewelleryData) {
-            window.saveDesign(
-              window.generatedJewelleryData.title,
-              window.generatedJewelleryData.prompt,
-              window.generatedJewelleryData.imageUrl,
-              window.generatedJewelleryData.type
-            );
-          }
-        });
+        jewellerySaveBtn.addEventListener(
+          "click",
+          () =>
+            window.generatedJewelleryData &&
+            window.saveDesign(...Object.values(window.generatedJewelleryData))
+        );
       });
 
       // Blog Section Search Functionality
@@ -1407,46 +1421,24 @@
         const blogPosts = [
           {
             title: "The Future of Shopping: Virtual Try-on",
-            date: "September 26, 2025",
-            image:
-              "https://placehold.co/800x600/252839/e4e4e7?text=Future+Shopping",
+            date: "Sep 26, 2025",
             content:
-              "Discover how AI-powered virtual try-on is revolutionizing the fashion industry, offering a personalized and convenient shopping experience.",
+              "Discover how AI-powered virtual try-on is revolutionizing the fashion industry...",
             id: "blog-1",
           },
           {
             title: "Designing Your Dream Home with AI",
-            date: "September 24, 2025",
-            image:
-              "https://placehold.co/800x600/252839/e4e4e7?text=AI+Home+Decor",
+            date: "Sep 24, 2025",
             content:
-              "Learn how generative AI is making interior design accessible to everyone, allowing you to visualize furniture and decor in your own space.",
+              "Learn how generative AI is making interior design accessible to everyone...",
             id: "blog-2",
           },
           {
-            title: "The Rise of Bespoke Jewellery",
-            date: "September 22, 2025",
-            image:
-              "https://placehold.co/800x600/252839/e4e4e7?text=Custom+Jewellery",
-            content:
-              "Explore how AI is empowering consumers to create unique, personalized jewellery and watches, turning a simple idea into a tangible masterpiece.",
-            id: "blog-3",
-          },
-          {
-            title: "5 AI Trends Shaping the Future",
-            date: "October 1, 2025",
-            image: "https://placehold.co/800x600/252839/e4e4e7?text=AI+Trends",
-            content:
-              "A look at the top five artificial intelligence trends that are expected to have a significant impact on technology and daily life in the coming years.",
-            id: "blog-4",
-          },
-          {
             title: "NLP and the Conversational Experience",
-            date: "September 30, 2025",
-            image: "https://placehold.co/800x600/252839/e4e4e7?text=NLP+Blog",
+            date: "Sep 22, 2025",
             content:
-              "Natural Language Processing (NLP) is at the core of AI models. This article dives into how NLP is improving communication between humans and machines, creating more intuitive user interfaces.",
-            id: "blog-5",
+              "This article dives into how Natural Language Processing is improving communication...",
+            id: "blog-3",
           },
         ];
 
@@ -1454,42 +1446,152 @@
         const searchInput = document.getElementById("blog-search-input");
 
         const renderBlogPosts = (posts) => {
-          blogContainer.innerHTML = ""; // Clear the container
-          if (posts.length === 0) {
-            blogContainer.innerHTML = `<p class="text-center text-gray-400 col-span-full">No articles found matching your search.</p>`;
-            return;
-          }
-          posts.forEach((post) => {
-            const article = document.createElement("div");
-            article.classList.add("card", "p-6");
-            article.innerHTML = `
+          blogContainer.innerHTML = posts.length
+            ? posts
+                .map(
+                  (post) => `
+            <div class="card p-6">
               <h3 class="text-xl font-bold mb-2">${post.title}</h3>
               <p class="text-gray-400 text-sm mb-4">Posted on ${post.date}</p>
-              <img src="${post.image}" alt="${post.title}" class="rounded-xl mb-4 w-full h-48 object-cover" />
               <p class="text-gray-300 mb-4">${post.content}</p>
               <a href="#" class="text-cyan-500 hover:underline">Read More &rarr;</a>
-            `;
-            blogContainer.appendChild(article);
-          });
+            </div>`
+                )
+                .join("")
+            : `<p class="text-center text-gray-400 col-span-full">No articles found.</p>`;
         };
 
-        const filterPosts = (query) => {
-          const lowerCaseQuery = query.toLowerCase();
-          return blogPosts.filter(
-            (post) =>
-              post.title.toLowerCase().includes(lowerCaseQuery) ||
-              post.content.toLowerCase().includes(lowerCaseQuery)
-          );
-        };
-
-        // Initial render
-        renderBlogPosts(blogPosts);
-
-        // Add event listener for real-time search
         searchInput.addEventListener("input", (e) => {
-          const query = e.target.value;
-          const filtered = filterPosts(query);
-          renderBlogPosts(filtered);
+          const query = e.target.value.toLowerCase();
+          renderBlogPosts(
+            blogPosts.filter(
+              (post) =>
+                post.title.toLowerCase().includes(query) ||
+                post.content.toLowerCase().includes(query)
+            )
+          );
+        });
+
+        renderBlogPosts(blogPosts);
+      });
+
+      // FAQ Accordion
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".accordion-header").forEach((header) => {
+          header.addEventListener("click", () => {
+            const content = header.nextElementSibling;
+            header.classList.toggle("active");
+            content.classList.toggle("active");
+            header.querySelector(".icon").textContent =
+              header.classList.contains("active") ? "-" : "+";
+          });
+        });
+      });
+
+      // Gemini Suggestion Modal Logic
+      document.addEventListener("DOMContentLoaded", () => {
+        const modal = document.getElementById("suggestion-modal");
+        const modalTitle = document.getElementById("modal-title");
+        const modalKeywords = document.getElementById("modal-keywords");
+        const modalGenerateBtn = document.getElementById("modal-generate-btn");
+        const modalCloseBtn = document.getElementById("modal-close-btn");
+        const modalLoader = document.getElementById("modal-loader");
+
+        let currentTargetTextarea = null;
+        let currentSuggestionType = "";
+
+        const openModal = (targetTextareaId, type) => {
+          currentTargetTextarea = document.getElementById(targetTextareaId);
+          currentSuggestionType = type;
+          modalTitle.textContent = `Get AI Suggestion for ${type}`;
+          modal.classList.remove("hidden");
+        };
+
+        const closeModal = () => {
+          modal.classList.add("hidden");
+          modalKeywords.value = "";
+          modalLoader.classList.add("hidden");
+        };
+
+        document
+          .getElementById("suggest-fashion-btn")
+          .addEventListener("click", () =>
+            openModal("tryon-prompt", "Fashion")
+          );
+        document
+          .getElementById("suggest-decor-btn")
+          .addEventListener("click", () => openModal("decor-prompt", "Decor"));
+        document
+          .getElementById("suggest-jewellery-btn")
+          .addEventListener("click", () =>
+            openModal("jewellery-prompt", "Jewellery")
+          );
+
+        modalCloseBtn.addEventListener("click", closeModal);
+
+        modalGenerateBtn.addEventListener("click", async () => {
+          const keywords = modalKeywords.value.trim();
+          if (!keywords) {
+            showMessage("Input Required", "Please enter some keywords.");
+            return;
+          }
+
+          modalLoader.classList.remove("hidden");
+          modalGenerateBtn.disabled = true;
+
+          let systemPrompt = "";
+          switch (currentSuggestionType) {
+            case "Fashion":
+              systemPrompt =
+                "You are a creative fashion stylist. Based on the following keywords, generate a detailed, single-paragraph description of a stylish outfit. Be vivid and inspiring.";
+              break;
+            case "Decor":
+              systemPrompt =
+                "You are an expert interior designer. Based on the following keywords, generate a detailed, single-paragraph description of a home decor item or scene. Focus on materials, style, and ambiance.";
+              break;
+            case "Jewellery":
+              systemPrompt =
+                "You are a master jeweller. Based on the following keywords, generate a detailed, single-paragraph description of a unique piece of jewellery or a watch. Describe the materials, craftsmanship, and overall aesthetic.";
+              break;
+          }
+
+          const userQuery = `Keywords: ${keywords}`;
+
+          try {
+            const apiKey = "";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+            const payload = {
+              contents: [{ parts: [{ text: userQuery }] }],
+              systemInstruction: { parts: [{ text: systemPrompt }] },
+            };
+
+            const response = await fetch(apiUrl, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload),
+            });
+
+            if (!response.ok) throw new Error("API request failed");
+
+            const result = await response.json();
+            const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
+
+            if (text && currentTargetTextarea) {
+              currentTargetTextarea.value = text;
+              closeModal();
+            } else {
+              throw new Error("No text generated or target not found.");
+            }
+          } catch (error) {
+            console.error("Gemini suggestion error:", error);
+            showMessage(
+              "Generation Failed",
+              "Could not get a suggestion. Please try again."
+            );
+          } finally {
+            modalLoader.classList.add("hidden");
+            modalGenerateBtn.disabled = false;
+          }
         });
       });
     </script>
