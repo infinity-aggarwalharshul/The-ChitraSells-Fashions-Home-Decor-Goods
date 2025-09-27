@@ -4,32 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>
-      The ChitraSells - Virtual Try-on & AI Designs | Fashion, Decor & Jewellery
+      The ChitraSells - Freemium AI Designs | Fashion, Decor & Jewellery
     </title>
 
     <!-- SEO Meta Tags for Search Engines -->
     <meta
       name="description"
-      content="Experience the future of shopping with The ChitraSells. Use our AI-powered virtual try-on for fashion and home decor, and design custom jewellery and watches. Explore the blog for AI trends and tips. Your imagination, powered by AI."
+      content="Experience the future of shopping with The ChitraSells. Use our AI-powered virtual try-on for fashion and home decor with our flexible freemium plans. Your imagination, powered by AI."
     />
     <meta
       name="keywords"
-      content="AI fashion, virtual try-on, AI home decor, generative AI, virtual visualization, custom jewellery, AI watches, personalized designs, The ChitraSells, AI blog, tech trends, future of e-commerce, NLP, Google Cloud, Gemini API"
+      content="AI fashion, virtual try-on, AI home decor, generative AI, LLM, Gemini, freemium, passkey, OTP, personalized designs, The ChitraSells, AI blog, tech trends, future of e-commerce, NLP, Google Cloud Database"
     />
     <meta name="author" content="The ChitraSells" />
     <link rel="canonical" href="https://yourwebsite.com/the-chitrasells" />
-
-    <!-- Open Graph Tags for Social Media -->
-    <meta
-      property="og:title"
-      content="The ChitraSells - AI Fashion, Decor & Jewellery"
-    />
-    <meta
-      property="og:description"
-      content="Create, try, and visualize with AI. The ChitraSells offers virtual fashion try-ons, custom home decor previews, and unique jewellery design."
-    />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://yourwebsite.com/the-chitrasells" />
 
     <!-- PWA Manifest -->
     <link rel="manifest" href="manifest.json" />
@@ -65,15 +53,8 @@
         font-family: "Playfair Display", serif;
       }
       .btn-primary {
-        padding-left: 2rem;
-        padding-right: 2rem;
-        padding-top: 0.75rem;
-        padding-bottom: 0.75rem;
-        background: linear-gradient(
-          to right,
-          #a78bfa,
-          #06b6d4
-        ); /* from-purple-500 to-cyan-500 */
+        padding: 0.75rem 2rem;
+        background: linear-gradient(to right, #a78bfa, #06b6d4);
         color: #fff;
         font-weight: bold;
         border-radius: 9999px;
@@ -87,31 +68,17 @@
         box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
           0 8px 10px -6px rgba(0, 0, 0, 0.1);
       }
-      .btn-primary:focus {
-        box-shadow: 0 0 0 4px rgba(168, 139, 250, 0.5); /* focus:ring-purple-500 */
-      }
       .btn-ai-suggestion {
-        background: linear-gradient(
-          to right,
-          #6d28d9,
-          #9333ea
-        ); /* from-violet-700 to-purple-600 */
-        border: 1px solid #a855f7; /* border-purple-500 */
+        background: linear-gradient(to right, #6d28d9, #9333ea);
+        border: 1px solid #a855f7;
       }
       .btn-ai-suggestion:hover {
-        background: linear-gradient(
-          to right,
-          #7e22ce,
-          #a855f7
-        ); /* hover:from-purple-600 hover:to-purple-500 */
+        background: linear-gradient(to right, #7e22ce, #a855f7);
       }
       .btn-secondary {
-        padding-left: 2rem;
-        padding-right: 2rem;
-        padding-top: 0.75rem;
-        padding-bottom: 0.75rem;
+        padding: 0.75rem 2rem;
         background: #fff;
-        color: #111827; /* text-gray-900 */
+        color: #111827;
         font-weight: bold;
         border-radius: 9999px;
         box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
@@ -121,15 +88,13 @@
       }
       .btn-secondary:hover {
         transform: scale(1.05);
-        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-          0 8px 10px -6px rgba(0, 0, 0, 0.1);
       }
       .card {
-        background-color: #1f2937; /* bg-gray-800 */
+        background-color: #1f2937;
         border-radius: 1.5rem;
         padding: 1.5rem;
         box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-        border: 1px solid #374151; /* border-gray-700 */
+        border: 1px solid #374151;
         transition: box-shadow 0.5s;
       }
       .card:hover {
@@ -138,49 +103,16 @@
       .input-field {
         width: 100%;
         padding: 1rem;
-        background-color: #111827; /* bg-gray-900 */
-        border: 1px solid #374151; /* border-gray-700 */
+        background-color: #111827;
+        border: 1px solid #374151;
         border-radius: 0.75rem;
         color: #fff;
         transition: border-color 0.2s, box-shadow 0.2s;
       }
-      .input-field::placeholder {
-        color: #6b7280; /* placeholder-gray-500 */
-      }
       .input-field:focus {
-        border-color: #06b6d4; /* focus:border-cyan-500 */
-        box-shadow: 0 0 0 2px #06b6d4; /* focus:ring-cyan-500 */
+        border-color: #06b6d4;
+        box-shadow: 0 0 0 2px #06b6d4;
       }
-      .accordion-item {
-        border-bottom: 1px solid #4a5568;
-      }
-      .accordion-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1rem 1.5rem;
-        cursor: pointer;
-        font-size: 1.125rem; /* text-lg */
-        font-weight: 600; /* font-semibold */
-      }
-      .accordion-content {
-        padding: 0 1.5rem 1rem;
-        color: #9ca3af; /* text-gray-400 */
-        transition: max-height 0.3s ease-in-out;
-        max-height: 0;
-        overflow: hidden;
-      }
-      .accordion-content.active {
-        max-height: 500px; /* A value large enough to show content */
-      }
-      .accordion-header .icon {
-        transform: none;
-        transition: transform 0.3s;
-      }
-      .accordion-header.active .icon {
-        transform: rotate(45deg);
-      }
-      /* Marquee styles */
       .marquee-container {
         background-color: #111827;
         padding: 0.5rem 0;
@@ -195,7 +127,6 @@
         color: var(--accent-cyan);
         text-shadow: 0 0 10px var(--accent-cyan), 0 0 20px var(--accent-purple);
         animation: marquee 25s linear infinite;
-        will-change: transform;
       }
       @keyframes marquee {
         from {
@@ -204,6 +135,51 @@
         to {
           transform: translateX(-100%);
         }
+      }
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 1rem;
+      }
+      .gallery-overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 1rem;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      .gallery-item:hover .gallery-overlay {
+        opacity: 1;
+      }
+      .pricing-card {
+        border: 1px solid #374151;
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+      .pricing-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 25px -5px rgba(146, 117, 210, 0.3);
+      }
+      .pricing-card.popular {
+        border-color: var(--accent-purple);
+        position: relative;
+        overflow: hidden;
+      }
+      .popular-badge {
+        position: absolute;
+        top: -1px;
+        right: -1px;
+        background: var(--accent-purple);
+        color: white;
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+        font-weight: bold;
+        border-bottom-left-radius: 1.5rem;
       }
     </style>
   </head>
@@ -214,182 +190,197 @@
       import {
         getAuth,
         signInAnonymously,
-        signInWithCustomToken,
         onAuthStateChanged,
+        RecaptchaVerifier,
+        signInWithPhoneNumber,
+        signOut,
       } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
       import {
         getFirestore,
         doc,
-        setDoc,
         onSnapshot,
         collection,
         addDoc,
         deleteDoc,
+        getDoc,
+        setDoc,
       } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
-      import { setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-      // Register Service Worker for PWA functionality
-      if ("serviceWorker" in navigator) {
-        window.addEventListener("load", () => {
-          navigator.serviceWorker
-            .register("/service-worker.js")
-            .then((registration) => {
-              console.log(
-                "Service Worker registered with scope:",
-                registration.scope
-              );
-            })
-            .catch((err) => {
-              console.log("Service Worker registration failed:", err);
-            });
-        });
-      }
+      // --- GLOBAL STATE ---
+      const FREE_GENERATION_LIMIT = 5;
+      let db,
+        auth,
+        userId,
+        userProfile = { generationCount: 0 };
 
-      // IMPORTANT: Use the global variables for Firebase configuration
-      const appId =
-        typeof __app_id !== "undefined" ? __app_id : "default-app-id";
-      const firebaseConfig =
-        typeof __firebase_config !== "undefined"
-          ? JSON.parse(__firebase_config)
-          : {};
-      const initialAuthToken =
-        typeof __initial_auth_token !== "undefined"
-          ? __initial_auth_token
-          : null;
+      // --- UTILITY FUNCTIONS ---
+      const $$ = (id) => document.getElementById(id);
+      const showMessage = (title, message) =>
+        window.showMessage(title, message);
 
-      let app;
-      let db;
-      let auth;
-      let userId;
-
-      // Set Firestore log level for debugging
-      setLogLevel("Debug");
-
-      window.addEventListener("DOMContentLoaded", async () => {
+      // --- FIREBASE INITIALIZATION & AUTH ---
+      async function initializeFirebase() {
         try {
-          app = initializeApp(firebaseConfig);
+          const appId =
+            typeof __app_id !== "undefined" ? __app_id : "default-app-id";
+          const firebaseConfig =
+            typeof __firebase_config !== "undefined"
+              ? JSON.parse(__firebase_config)
+              : {};
+          const app = initializeApp(firebaseConfig);
           db = getFirestore(app);
           auth = getAuth(app);
 
-          // Listen for authentication state changes
           onAuthStateChanged(auth, async (user) => {
             if (user) {
               userId = user.uid;
-              // User is signed in, load their designs.
-              document
-                .getElementById("my-designs-section")
-                .classList.remove("hidden");
+              await loadUserProfile();
+              $("my-designs-section").classList.remove("hidden");
               loadDesigns();
+              updateUIForLoggedInUser(user);
             } else {
-              console.log("User is signed out.");
               userId = null;
-              // User is signed out, hide their designs section.
-              document
-                .getElementById("my-designs-section")
-                .classList.add("hidden");
+              userProfile = { generationCount: 0 };
+              updateUIForLoggedOutUser();
+              signInAnonymously(auth).catch((err) =>
+                console.error("Anonymous sign-in failed:", err)
+              );
             }
           });
-
-          if (initialAuthToken) {
-            await signInWithCustomToken(auth, initialAuthToken);
-          } else {
-            await signInAnonymously(auth);
-          }
         } catch (error) {
-          console.error(
-            "Firebase initialization or authentication failed:",
-            error
-          );
-          showMessage(
-            "Error",
-            "Failed to initialize the app. Please try again."
-          );
+          console.error("Firebase initialization failed:", error);
+          showMessage("Error", "Failed to initialize the app.");
         }
-      });
+      }
 
+      const loadUserProfile = async () => {
+        if (!userId) return;
+        const userDocRef = doc(
+          db,
+          `artifacts/${
+            typeof __app_id !== "undefined" ? __app_id : "default-app-id"
+          }/users/${userId}`
+        );
+        const docSnap = await getDoc(userDocRef);
+        if (docSnap.exists()) {
+          userProfile = docSnap.data();
+        } else {
+          userProfile = { generationCount: 0, plan: "free" };
+          await setDoc(userDocRef, userProfile);
+        }
+        updateGenerationCounter();
+      };
+
+      const updateUserProfile = async (data) => {
+        if (!userId) return;
+        const userDocRef = doc(
+          db,
+          `artifacts/${
+            typeof __app_id !== "undefined" ? __app_id : "default-app-id"
+          }/users/${userId}`
+        );
+        await setDoc(userDocRef, data, { merge: true });
+      };
+
+      // --- UI UPDATE FUNCTIONS ---
+      const updateUIForLoggedInUser = (user) => {
+        $("login-btn").classList.add("hidden");
+        $("logout-btn").classList.remove("hidden");
+        $("auth-modal").classList.add("hidden");
+        if (!user.isAnonymous && user.phoneNumber) {
+          $("user-info").textContent = user.phoneNumber;
+          $("user-info").classList.remove("hidden");
+        }
+      };
+
+      const updateUIForLoggedOutUser = () => {
+        $("login-btn").classList.remove("hidden");
+        $("logout-btn").classList.add("hidden");
+        $("my-designs-section").classList.add("hidden");
+        $("user-info").classList.add("hidden");
+      };
+
+      const updateGenerationCounter = () => {
+        const remaining =
+          FREE_GENERATION_LIMIT - (userProfile.generationCount || 0);
+        const counterText = $("generation-count");
+        if (remaining > 0) {
+          counterText.textContent = remaining;
+        } else {
+          $("generation-count").parentElement.innerHTML =
+            "Free limit reached. <a href='#pricing-section' class='text-cyan-400 underline'>Upgrade now</a>.";
+        }
+      };
+
+      // --- BUSINESS LOGIC (Designs, etc.) ---
       const saveDesign = async (title, prompt, imageUrl, type) => {
-        if (!userId) {
-          showMessage("Login Required", "Please sign in to save your designs.");
-          return;
-        }
-
-        try {
-          const designsCollectionRef = collection(
-            db,
-            `artifacts/${appId}/users/${userId}/designs`
+        if (!userId)
+          return showMessage(
+            "Login Required",
+            "Please sign in to save your designs."
           );
-          await addDoc(designsCollectionRef, {
-            title,
-            prompt,
-            imageUrl,
-            type,
-            timestamp: new Date(),
-          });
+        try {
+          await addDoc(
+            collection(
+              db,
+              `artifacts/${
+                typeof __app_id !== "undefined" ? __app_id : "default-app-id"
+              }/users/${userId}/designs`
+            ),
+            { title, prompt, imageUrl, type, timestamp: new Date() }
+          );
           showMessage("Success!", `${title} saved to your designs.`);
         } catch (e) {
-          console.error("Error adding document: ", e);
-          showMessage(
-            "Save Failed",
-            "Could not save design. Please try again."
-          );
+          showMessage("Save Failed", "Could not save design.");
         }
       };
 
       const loadDesigns = () => {
         if (!userId) return;
-        const designsContainer = document.getElementById("my-designs-gallery");
-        designsContainer.innerHTML = "";
-        const designsCollectionRef = collection(
+        const q = collection(
           db,
-          `artifacts/${appId}/users/${userId}/designs`
+          `artifacts/${
+            typeof __app_id !== "undefined" ? __app_id : "default-app-id"
+          }/users/${userId}/designs`
         );
-
-        onSnapshot(designsCollectionRef, (querySnapshot) => {
-          designsContainer.innerHTML = "";
-          if (querySnapshot.empty) {
-            designsContainer.innerHTML = `<p class="text-center text-gray-500 col-span-full">You haven't saved any designs yet.</p>`;
-          } else {
-            querySnapshot.forEach((doc) => {
-              const data = doc.data();
-              const designCard = document.createElement("div");
-              designCard.classList.add(
-                "relative",
-                "bg-gray-700",
-                "p-4",
-                "rounded-xl",
-                "shadow-sm"
+        onSnapshot(q, (snapshot) => {
+          const container = $("my-designs-gallery");
+          container.innerHTML = snapshot.empty
+            ? `<p class="text-center text-gray-500 col-span-full">You haven't saved any designs yet.</p>`
+            : "";
+          snapshot.forEach((docSnap) => {
+            const data = docSnap.data();
+            const card = document.createElement("div");
+            card.className = "relative bg-gray-700 p-4 rounded-xl shadow-sm";
+            card.innerHTML = `<img src="${data.imageUrl}" alt="${data.title}" class="w-full h-48 object-cover rounded-lg mb-2" /><h3 class="font-semibold text-lg text-gray-200 truncate">${data.title}</h3><p class="text-sm text-gray-400">${data.type} Design</p><button data-doc-id="${docSnap.id}" aria-label="Delete design" class="delete-btn absolute top-2 right-2 text-red-400 hover:text-red-600"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm6 0a1 1 0 112 0v6a1 1 0 11-2 0V8z" clip-rule="evenodd" /></svg></button>`;
+            container.appendChild(card);
+          });
+          container.querySelectorAll(".delete-btn").forEach((btn) =>
+            btn.addEventListener("click", async (e) => {
+              const docId = e.currentTarget.dataset.docId;
+              await deleteDoc(
+                doc(
+                  db,
+                  `artifacts/${
+                    typeof __app_id !== "undefined"
+                      ? __app_id
+                      : "default-app-id"
+                  }/users/${userId}/designs`,
+                  docId
+                )
               );
-              designCard.innerHTML = `
-                <img src="${data.imageUrl}" alt="${data.title}" class="w-full h-48 object-cover rounded-lg mb-2" />
-                <h3 class="font-semibold text-lg text-gray-200 truncate">${data.title}</h3>
-                <p class="text-sm text-gray-400">${data.type} Design</p>
-                <button data-doc-id="${doc.id}" aria-label="Delete design" class="absolute top-2 right-2 text-red-400 hover:text-red-600 transition-colors duration-200">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm6 0a1 1 0 112 0v6a1 1 0 11-2 0V8z" clip-rule="evenodd" />
-                  </svg>
-                </button>
-              `;
-              designsContainer.appendChild(designCard);
-            });
-            designsContainer.querySelectorAll("button").forEach((button) => {
-              button.addEventListener("click", async (e) => {
-                const docId = e.currentTarget.dataset.docId;
-                try {
-                  await deleteDoc(
-                    doc(db, `artifacts/${appId}/users/${userId}/designs`, docId)
-                  );
-                  showMessage("Deleted", "Design successfully removed.");
-                } catch (error) {
-                  console.error("Error deleting document: ", error);
-                  showMessage("Deletion Failed", "Could not delete design.");
-                }
-              });
-            });
-          }
+              showMessage("Deleted", "Design removed.");
+            })
+          );
         });
       };
 
+      // --- EXPORT TO WINDOW SCOPE & INITIALIZE ---
+      window.addEventListener("DOMContentLoaded", initializeFirebase);
       window.saveDesign = saveDesign;
+      window.getAuth = () => auth;
+      window.userProfile = () => userProfile;
+      window.updateUserProfile = updateUserProfile;
     </script>
 
     <!-- Marquee Banner -->
@@ -401,7 +392,7 @@
     <header
       class="p-4 md:p-6 bg-secondary shadow-md flex justify-between items-center z-50 sticky top-0"
     >
-      <div class="flex items-center space-x-4">
+      <a href="#home-section" class="flex items-center space-x-4">
         <img
           src="cropped_circle_image (1).png"
           alt="The ChitraSells Logo"
@@ -410,7 +401,7 @@
         <h1 class="text-2xl md:text-3xl font-bold text-white">
           The ChitraSells
         </h1>
-      </div>
+      </a>
       <nav class="hidden md:flex items-center space-x-6">
         <a
           href="#home-section"
@@ -420,29 +411,29 @@
         <a
           href="#fashion-section"
           class="text-gray-300 hover:text-white transition-colors font-semibold"
-          >Fashion</a
+          >Virtual Try-On</a
         >
         <a
-          href="#decor-section"
+          href="#art-gallery-section"
           class="text-gray-300 hover:text-white transition-colors font-semibold"
-          >Decor</a
+          >Art Gallery</a
         >
         <a
-          href="#jewellery-section"
+          href="blog.html"
           class="text-gray-300 hover:text-white transition-colors font-semibold"
-          >Jewellery</a
-        >
-        <a
-          href="#about-us"
-          class="text-gray-300 hover:text-white transition-colors font-semibold"
-          >About</a
+          >Blogs</a
         >
         <a
           href="#contact"
           class="text-gray-300 hover:text-white transition-colors font-semibold"
-          >Contact</a
+          >Contact Us</a
         >
       </nav>
+      <div id="auth-container" class="flex items-center space-x-4">
+        <span id="user-info" class="text-gray-300 hidden"></span>
+        <button id="login-btn" class="btn-primary">Login</button>
+        <button id="logout-btn" class="btn-secondary hidden">Sign Out</button>
+      </div>
     </header>
 
     <main class="container mx-auto p-4 md:p-8 space-y-24">
@@ -461,15 +452,11 @@
         </h2>
         <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto">
           Create, visualize, and save unique designs for fashion, decor, and
-          more using the power of AI and Natural Language Processing.
+          more using the power of Large Language Models and AI.
         </p>
         <div class="flex justify-center space-x-4">
-          <a href="#fashion-section" class="btn-primary"
-            >Virtual Fashion Try-On</a
-          >
-          <a href="#jewellery-section" class="btn-secondary"
-            >Jewellery & Watches Designer</a
-          >
+          <a href="#fashion-section" class="btn-primary">Start Designing</a>
+          <a href="#pricing-section" class="btn-secondary">View Plans</a>
         </div>
       </section>
 
@@ -480,9 +467,17 @@
             Virtual Fashion Try-On
           </h2>
           <p class="text-gray-400 max-w-xl mx-auto">
-            See how different outfits look on you. Upload a photo, describe your
+            See how different outfits look. Upload a photo, describe your
             outfit, and let our AI transform it.
           </p>
+          <div id="generation-counter-container" class="text-center mt-4">
+            <p class="text-lg">
+              Generations Left:
+              <span id="generation-count" class="font-bold text-cyan-400"
+                >5</span
+              >
+            </p>
+          </div>
         </div>
         <div
           class="flex flex-col lg:flex-row items-center justify-center gap-8"
@@ -551,7 +546,6 @@
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
                     stroke-linecap="round"
@@ -569,232 +563,7 @@
                 />
               </label>
             </div>
-            <div
-              id="tryon-preview-container"
-              class="relative w-full h-80 bg-gray-900 rounded-xl overflow-hidden mt-4 hidden"
-            >
-              <img
-                id="tryon-preview-img"
-                src=""
-                alt="Uploaded user photo for virtual fashion try-on"
-                class="absolute inset-0 w-full h-full object-cover"
-              />
-            </div>
           </div>
-        </div>
-      </section>
-
-      <!-- Decor Visualization Section -->
-      <section id="decor-section" class="py-12">
-        <div class="text-center mb-12 space-y-4">
-          <h2 class="text-3xl md:text-5xl font-bold text-white">
-            Home Decor Visualization
-          </h2>
-          <p class="text-gray-400 max-w-xl mx-auto">
-            See new AI-generated furniture and decor items in your own room.
-          </p>
-        </div>
-        <div
-          class="flex flex-col lg:flex-row items-center justify-center gap-8"
-        >
-          <div
-            class="relative w-full lg:w-1/2 bg-gray-800 rounded-3xl shadow-xl aspect-[4/3] overflow-hidden border border-gray-700"
-          >
-            <img
-              id="decor-room-img"
-              src="https://placehold.co/1200x900/252839/e4e4e7?text=Upload+Your+Room+Photo"
-              alt="User's room photo for home decor visualization"
-              class="w-full h-full object-cover"
-            />
-            <div id="decor-preview-container" class="absolute inset-0"></div>
-          </div>
-          <div class="w-full lg:w-1/2 p-4 md:p-8 card space-y-6">
-            <div class="space-y-4">
-              <label for="decor-prompt" class="text-gray-300 font-medium"
-                >Describe your decor item:</label
-              >
-              <textarea
-                id="decor-prompt"
-                class="input-field"
-                rows="3"
-                placeholder="E.g., A minimalist wooden coffee table with a glass top."
-              ></textarea>
-            </div>
-            <div class="grid grid-cols-2 gap-4">
-              <button
-                id="decor-generate-btn"
-                class="btn-primary w-full flex items-center justify-center gap-2"
-                aria-label="Generate decor item"
-              >
-                Generate
-              </button>
-              <button
-                id="suggest-decor-btn"
-                class="btn-primary btn-ai-suggestion w-full flex items-center justify-center gap-2"
-                aria-label="Suggest decor idea"
-              >
-                ✨ Suggest
-              </button>
-            </div>
-            <button
-              id="decor-save-btn"
-              class="btn-secondary w-full flex items-center justify-center gap-2 hidden"
-              aria-label="Save decor design"
-            >
-              Save Decor
-            </button>
-            <div class="mt-4">
-              <label
-                for="decor-image-upload"
-                class="flex justify-center w-full px-4 py-6 text-gray-500 border-2 border-dashed border-gray-700 rounded-xl cursor-pointer hover:bg-gray-900 transition-colors"
-              >
-                <svg
-                  class="w-8 h-8 mr-2"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
-                  ></path>
-                </svg>
-                <span class="font-medium">Click to upload your room photo</span>
-                <input
-                  id="decor-image-upload"
-                  type="file"
-                  accept="image/*"
-                  class="hidden"
-                />
-              </label>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Jewellery & Watches Section -->
-      <section id="jewellery-section" class="py-12">
-        <div class="text-center mb-12 space-y-4">
-          <h2 class="text-3xl md:text-5xl font-bold text-white">
-            Jewellery & Watches Designer
-          </h2>
-          <p class="text-gray-400 max-w-xl mx-auto">
-            Design your own custom jewellery or watch with a simple text
-            description.
-          </p>
-        </div>
-        <div
-          class="flex flex-col lg:flex-row items-center justify-center gap-8"
-        >
-          <div
-            class="relative w-full lg:w-1/2 aspect-square p-4 bg-gray-800 rounded-3xl shadow-xl flex items-center justify-center overflow-hidden border border-gray-700"
-          >
-            <div
-              id="jewellery-placeholder"
-              class="absolute inset-0 flex items-center justify-center text-center text-gray-400 p-8"
-            >
-              <span class="text-lg"
-                >Your AI-generated design will appear here.</span
-              >
-            </div>
-            <img
-              id="jewellery-design-image"
-              src=""
-              alt="AI generated jewellery or watch design"
-              class="w-full h-full object-contain p-8 hidden"
-            />
-            <div
-              id="jewellery-loading"
-              class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-75 z-10 hidden"
-            >
-              <div
-                class="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-purple-500"
-              ></div>
-            </div>
-          </div>
-          <div class="w-full lg:w-1/2 p-4 md:p-8 card space-y-6">
-            <div class="space-y-4">
-              <label for="jewellery-prompt" class="text-gray-300 font-medium"
-                >Describe your jewellery or watch design:</label
-              >
-              <textarea
-                id="jewellery-prompt"
-                class="input-field"
-                rows="4"
-                placeholder="E.g., A minimalist silver watch with a dark blue face and a leather strap."
-              ></textarea>
-            </div>
-            <div class="grid grid-cols-2 gap-4">
-              <button
-                id="jewellery-generate-btn"
-                class="btn-primary w-full flex items-center justify-center gap-2"
-                aria-label="Generate jewellery design"
-              >
-                Generate
-              </button>
-              <button
-                id="suggest-jewellery-btn"
-                class="btn-primary btn-ai-suggestion w-full flex items-center justify-center gap-2"
-                aria-label="Suggest jewellery idea"
-              >
-                ✨ Suggest
-              </button>
-            </div>
-            <button
-              id="jewellery-save-btn"
-              class="btn-secondary w-full flex items-center justify-center gap-2 hidden"
-              aria-label="Save jewellery design"
-            >
-              Save Design
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <!-- Blog Section for Content Expansion with Search -->
-      <section id="blog-section" class="py-12">
-        <div class="text-center mb-12 space-y-4">
-          <h2 class="text-3xl md:text-5xl font-bold text-white">Our Blogs</h2>
-          <p class="text-gray-400 max-w-xl mx-auto">
-            Explore articles on the latest in AI, fashion, and home decor
-            technology.
-          </p>
-          <!-- Search Bar -->
-          <div class="relative max-w-2xl mx-auto mt-8">
-            <input
-              type="text"
-              id="blog-search-input"
-              placeholder="Search for articles..."
-              class="input-field pl-12 pr-4"
-            />
-            <div
-              class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5 text-gray-400"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
-              </svg>
-            </div>
-          </div>
-        </div>
-        <div
-          id="blog-posts-container"
-          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-        >
-          <!-- Blog Posts will be dynamically rendered here -->
         </div>
       </section>
 
@@ -805,148 +574,156 @@
             My Saved Designs
           </h2>
           <p class="text-gray-400 max-w-xl mx-auto">
-            A gallery of your unique, AI-powered creations.
+            A gallery of your unique, AI-powered creations, saved to your
+            account.
           </p>
         </div>
         <div
           id="my-designs-gallery"
           class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"
         >
-          <!-- Designs will be loaded here dynamically -->
+          <!-- Designs loaded here -->
         </div>
       </section>
 
-      <!-- AI & NLP Technology Section -->
-      <section id="ai-nlp-section" class="py-12">
+      <!-- Pricing Section -->
+      <section id="pricing-section" class="py-12">
         <div class="text-center mb-12 space-y-4">
-          <h2 class="text-3xl md:text-5xl font-bold text-white">
-            Our Technology: AI & NLP
-          </h2>
-          <p class="text-gray-400 max-w-2xl mx-auto">
-            We use state-of-the-art AI and Natural Language Processing (NLP) to
-            turn your text descriptions into stunning visual designs.
-          </p>
-        </div>
-        <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8">
-          <div class="card p-8">
-            <h3 class="text-2xl font-bold text-white mb-4">
-              Generative AI Models
-            </h3>
-            <p class="text-gray-400">
-              Our platform is powered by advanced generative AI models like
-              Google's Gemini and Imagen. These models have been trained on vast
-              datasets of images and text, allowing them to create novel,
-              high-quality images from your prompts. When you describe an outfit
-              or a piece of jewellery, our AI interprets your words and
-              generates a unique visual representation.
-            </p>
-          </div>
-          <div class="card p-8">
-            <h3 class="text-2xl font-bold text-white mb-4">
-              Natural Language Processing (NLP)
-            </h3>
-            <p class="text-gray-400">
-              NLP is the bridge between your ideas and our AI. This technology
-              allows our system to understand the nuances of human language. It
-              breaks down your prompts, identifies key elements like objects,
-              styles, and colors, and translates them into instructions that the
-              generative AI can use to create the final image. The better the
-              prompt, the more accurate the result.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- About Us Section -->
-      <section id="about-us" class="py-12">
-        <div class="card p-8 text-center space-y-6">
-          <h2 class="text-3xl md:text-5xl font-bold text-white">
-            About The ChitraSells
-          </h2>
-          <p class="text-gray-400 max-w-3xl mx-auto">
-            We are pioneers in AI-driven e-commerce. Our mission is to
-            democratize design and make personalized, one-of-a-kind goods
-            accessible to everyone. By harnessing the power of generative AI, we
-            allow you to become the designer, transforming your ideas into
-            reality.
-          </p>
-        </div>
-      </section>
-
-      <!-- FAQ Section -->
-      <section id="faq-section" class="py-12">
-        <div class="text-center mb-12 space-y-4">
-          <h2 class="text-3xl md:text-5xl font-bold text-white">
-            Frequently Asked Questions
-          </h2>
+          <h2 class="text-3xl md:text-5xl font-bold text-white">Our Plans</h2>
           <p class="text-gray-400 max-w-xl mx-auto">
-            Find quick answers to common questions about our AI tools.
+            Choose a plan that fits your creative needs. Prices are adjusted for
+            your region.
+          </p>
+          <div class="max-w-xs mx-auto">
+            <select id="country-selector" class="input-field">
+              <option value="IN">India (INR)</option>
+              <option value="US">United States (USD)</option>
+              <option value="GB">United Kingdom (GBP)</option>
+              <option value="CA">Canada (CAD)</option>
+            </select>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <!-- Free Plan -->
+          <div class="card pricing-card p-8 flex flex-col">
+            <h3 class="text-2xl font-bold text-center">Free</h3>
+            <p class="text-center text-4xl font-bold my-4">
+              ₹0<span class="text-lg font-normal">/mo</span>
+            </p>
+            <ul class="space-y-2 text-gray-400 flex-grow">
+              <li>✓ 5 AI Generations</li>
+              <li>✓ Basic Prompt Assistance</li>
+              <li>✓ Save up to 3 Designs</li>
+              <li>✗ High-Resolution Exports</li>
+            </ul>
+            <a
+              href="#fashion-section"
+              class="btn-secondary w-full text-center mt-6"
+              >Get Started</a
+            >
+          </div>
+          <!-- Premium Plan -->
+          <div class="card pricing-card popular p-8 flex flex-col">
+            <div class="popular-badge">Most Popular</div>
+            <h3 class="text-2xl font-bold text-center">Premium</h3>
+            <p
+              id="premium-price"
+              class="text-center text-4xl font-bold my-4 text-cyan-400"
+            >
+              ₹499<span class="text-lg font-normal">/mo</span>
+            </p>
+            <ul class="space-y-2 text-gray-400 flex-grow">
+              <li>✓ 100 AI Generations</li>
+              <li>✓ Advanced Gemini Suggestions</li>
+              <li>✓ Unlimited Design Saves</li>
+              <li>✓ High-Resolution Exports</li>
+            </ul>
+            <a href="#" class="btn-primary w-full text-center mt-6"
+              >Upgrade Now</a
+            >
+          </div>
+          <!-- Enterprise Plan -->
+          <div class="card pricing-card p-8 flex flex-col">
+            <h3 class="text-2xl font-bold text-center">Enterprise</h3>
+            <p class="text-center text-4xl font-bold my-4">Contact Us</p>
+            <ul class="space-y-2 text-gray-400 flex-grow">
+              <li>✓ Unlimited AI Generations</li>
+              <li>✓ Dedicated AI Models</li>
+              <li>✓ Team Collaboration Tools</li>
+              <li>✓ Priority Support</li>
+            </ul>
+            <a href="#contact" class="btn-secondary w-full text-center mt-6"
+              >Contact Sales</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- Art Gallery Section -->
+      <section id="art-gallery-section" class="py-12">
+        <div class="text-center mb-12 space-y-4">
+          <h2 class="text-3xl md:text-5xl font-bold text-white">Art Gallery</h2>
+          <p class="text-gray-400 max-w-xl mx-auto">
+            Get inspired by a collection of AI-generated designs.
+          </p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="gallery-item">
+            <img
+              src="https://placehold.co/600x800/252839/e4e4e7?text=Cyberpunk+Jacket"
+              alt="Art Gallery item 1"
+              class="w-full h-full object-cover"
+            />
+            <div class="gallery-overlay">
+              <span>A cyberpunk leather jacket with neon blue accents.</span>
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://placehold.co/600x800/252839/e4e4e7?text=Minimalist+Watch"
+              alt="Art Gallery item 2"
+              class="w-full h-full object-cover"
+            />
+            <div class="gallery-overlay">
+              <span
+                >A minimalist watch with a marble face and rose gold
+                hands.</span
+              >
+            </div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://placehold.co/600x800/252839/e4e4e7?text=Velvet+Sofa"
+              alt="Art Gallery item 3"
+              class="w-full h-full object-cover"
+            />
+            <div class="gallery-overlay">
+              <span
+                >An emerald green velvet sofa in a sunlit, modern living
+                room.</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Blogs Section -->
+      <section id="blogs-section" class="py-12">
+        <div class="text-center mb-12 space-y-4">
+          <h2 class="text-3xl md:text-5xl font-bold text-white">Our Blogs</h2>
+          <p class="text-gray-400 max-w-xl mx-auto">
+            Explore articles on the latest in AI, fashion, and home decor
+            technology.
           </p>
         </div>
         <div
-          class="max-w-3xl mx-auto bg-gray-800 rounded-3xl shadow-xl border border-gray-700"
+          id="blog-posts-container"
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          <!-- FAQ Item 1 -->
-          <div class="accordion-item">
-            <div class="accordion-header" role="button" aria-expanded="false">
-              <span>How does the virtual try-on feature work?</span>
-              <span class="icon">+</span>
-            </div>
-            <div class="accordion-content">
-              <p>
-                Our virtual try-on tool uses advanced generative AI. You upload
-                a clear photo of a person, and our AI model generates a new
-                image with the described outfit seamlessly integrated onto the
-                person in your photo. It works best with full-body or upper-body
-                shots with a simple background.
-              </p>
-            </div>
-          </div>
-          <!-- FAQ Item 2 -->
-          <div class="accordion-item">
-            <div class="accordion-header" role="button" aria-expanded="false">
-              <span>What kind of images can I upload?</span>
-              <span class="icon">+</span>
-            </div>
-            <div class="accordion-content">
-              <p>
-                For the virtual try-on, please upload a well-lit, clear photo of
-                a person. For the home decor visualization, upload a photo of
-                your room. The clearer the photo, the better the AI results will
-                be.
-              </p>
-            </div>
-          </div>
-          <!-- FAQ Item 3 -->
-          <div class="accordion-item">
-            <div class="accordion-header" role="button" aria-expanded="false">
-              <span>Are my uploaded images saved?</span>
-              <span class="icon">+</span>
-            </div>
-            <div class="accordion-content">
-              <p>
-                No, your uploaded images are not permanently saved. They are
-                used for a single AI generation session and are then discarded
-                to protect your privacy. Only the designs you choose to save
-                will be stored in your personal gallery.
-              </p>
-            </div>
-          </div>
-          <!-- FAQ Item 4 -->
-          <div class="accordion-item">
-            <div class="accordion-header" role="button" aria-expanded="false">
-              <span>How do I save a design to my gallery?</span>
-              <span class="icon">+</span>
-            </div>
-            <div class="accordion-content">
-              <p>
-                After the AI generates a design, a "Save Design" button will
-                appear. Click this button to save the design to your private
-                gallery, which can be viewed in the "My Saved Designs" section
-                of the site.
-              </p>
-            </div>
-          </div>
+          <!-- Blog Posts will be dynamically rendered here -->
+        </div>
+        <div class="text-center mt-12">
+          <a href="blog.html" class="btn-primary">View All Articles</a>
         </div>
       </section>
 
@@ -974,7 +751,7 @@
                 name="name"
                 class="input-field"
                 placeholder="Your Name"
-                aria-required="true"
+                required
               />
             </div>
             <div>
@@ -989,7 +766,7 @@
                 name="email"
                 class="input-field"
                 placeholder="you@example.com"
-                aria-required="true"
+                required
               />
             </div>
             <div>
@@ -1004,7 +781,7 @@
                 rows="4"
                 class="input-field"
                 placeholder="Your message..."
-                aria-required="true"
+                required
               ></textarea>
             </div>
             <button
@@ -1019,10 +796,70 @@
       </section>
     </main>
 
+    <!-- Auth Modal -->
+    <div
+      id="auth-modal"
+      class="fixed inset-0 z-[100] bg-black bg-opacity-75 flex items-center justify-center hidden"
+    >
+      <div class="card max-w-md w-full space-y-4 relative">
+        <button
+          id="auth-close-btn"
+          class="absolute top-4 right-4 text-gray-400 hover:text-white"
+        >
+          &times;
+        </button>
+        <h3 class="text-2xl font-bold text-white text-center">
+          Login or Sign Up
+        </h3>
+
+        <div id="phone-auth-container">
+          <label
+            for="phone-number-input"
+            class="block text-sm font-medium text-gray-300 mb-2"
+            >Enter your phone number (with country code):</label
+          >
+          <input
+            type="tel"
+            id="phone-number-input"
+            class="input-field"
+            placeholder="+91 12345 67890"
+          />
+          <button id="send-otp-btn" class="btn-primary w-full mt-4">
+            Send OTP
+          </button>
+        </div>
+
+        <div id="otp-container" class="hidden">
+          <label
+            for="otp-input"
+            class="block text-sm font-medium text-gray-300 mb-2"
+            >Enter OTP:</label
+          >
+          <input
+            type="text"
+            id="otp-input"
+            class="input-field"
+            placeholder="123456"
+          />
+          <button id="verify-otp-btn" class="btn-primary w-full mt-4">
+            Verify OTP
+          </button>
+        </div>
+
+        <div class="text-center text-gray-500 my-4">or</div>
+
+        <button id="passkey-btn" class="btn-secondary w-full">
+          Sign in with a Passkey
+        </button>
+
+        <div id="recaptcha-container" class="mt-4 flex justify-center"></div>
+      </div>
+    </div>
+
     <!-- Suggestion Modal -->
     <div
       id="suggestion-modal"
-      class="fixed inset-0 z-50 bg-black bg-opacity-75 flex items-center justify-center hidden"
+      class="fixed inset-0 z-[100] bg-black bg-opacity-75 flex items-center justify-center hidden"
     >
       <div class="card max-w-lg w-full space-y-4">
         <h3 id="modal-title" class="text-2xl font-bold text-white text-center">
@@ -1058,39 +895,48 @@
       </div>
     </div>
 
+    <!-- Upgrade Modal -->
+    <div
+      id="upgrade-modal"
+      class="fixed inset-0 z-[100] bg-black bg-opacity-75 flex items-center justify-center hidden"
+    >
+      <div class="card max-w-md w-full space-y-4 text-center">
+        <h3 class="text-2xl font-bold text-white">Free Limit Reached</h3>
+        <p class="text-gray-400">
+          You've used all your free generations. Please upgrade to our Premium
+          plan to continue creating.
+        </p>
+        <div class="flex gap-4">
+          <a
+            href="#pricing-section"
+            id="upgrade-modal-action-btn"
+            class="btn-primary w-full"
+            >View Plans</a
+          >
+          <button id="upgrade-modal-close-btn" class="btn-secondary w-full">
+            Maybe Later
+          </button>
+        </div>
+      </div>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-secondary text-gray-400 py-12 px-8">
       <div
         class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left"
       >
-        <!-- Logo & Description -->
         <div>
           <h3 class="text-white text-xl font-bold mb-2">The ChitraSells</h3>
           <p class="text-sm">
-            Revolutionizing e-commerce with AI-powered virtual try-ons and
-            custom design tools.
+            Revolutionizing e-commerce with AI-powered design.
           </p>
         </div>
-
-        <!-- Navigation Links -->
         <div class="space-y-2">
           <h4 class="text-white font-semibold">Quick Links</h4>
           <ul class="space-y-1">
             <li>
-              <a href="#home-section" class="hover:text-white transition-colors"
-                >Home</a
-              >
-            </li>
-            <li>
-              <a
-                href="#fashion-section"
-                class="hover:text-white transition-colors"
-                >Virtual Try-On</a
-              >
-            </li>
-            <li>
-              <a href="#about-us" class="hover:text-white transition-colors"
-                >About Us</a
+              <a href="blog.html" class="hover:text-white transition-colors"
+                >Blogs</a
               >
             </li>
             <li>
@@ -1108,19 +954,11 @@
                 >Terms & Conditions</a
               >
             </li>
-            <li>
-              <a href="#contact" class="hover:text-white transition-colors"
-                >Contact Us</a
-              >
-            </li>
           </ul>
         </div>
-
-        <!-- Social Media -->
         <div class="space-y-2">
           <h4 class="text-white font-semibold">Follow Us</h4>
           <div class="flex justify-center md:justify-start space-x-4 mt-2">
-            <!-- Placeholder social icons -->
             <a href="#" aria-label="Follow us on Twitter"
               ><svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -1164,7 +1002,7 @@
     <!-- Custom Message Box -->
     <div
       id="message-box"
-      class="fixed bottom-4 right-4 z-50 transform transition-all duration-300 ease-in-out opacity-0 translate-y-4 pointer-events-none"
+      class="fixed bottom-4 right-4 z-[101] transform transition-all duration-300 opacity-0 translate-y-4 pointer-events-none"
     >
       <div
         id="message-content"
@@ -1176,26 +1014,39 @@
     </div>
 
     <script type="module">
-      const showMessage = (title, message) => {
-        const msgBox = document.getElementById("message-box");
-        const msgText = document.getElementById("message-text");
-        const msgIcon = document.getElementById("message-icon");
+      import {
+        RecaptchaVerifier,
+        signInWithPhoneNumber,
+        signOut,
+      } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
 
+      // --- CONSTANTS & STATE ---
+      const prices = {
+        IN: { symbol: "₹", rate: 499 },
+        US: { symbol: "$", rate: 7 },
+        GB: { symbol: "£", rate: 6 },
+        CA: { symbol: "C$", rate: 9 },
+      };
+
+      // --- UTILITY FUNCTIONS ---
+      const $ = (id) => document.getElementById(id);
+      const toggleLoading = (element, show) =>
+        element.classList.toggle("hidden", !show);
+
+      const showLocalMessage = (title, message) => {
+        const msgBox = $("message-box");
+        const msgText = $("message-text");
+        const msgIcon = $("message-icon");
         msgText.innerHTML = `<strong>${title}:</strong> ${message}`;
-        msgIcon.innerHTML =
-          title === "Success!"
-            ? `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`
-            : `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`;
-
+        msgIcon.innerHTML = title.toLowerCase().includes("success")
+          ? `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`
+          : `<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`;
         msgBox.classList.remove(
           "opacity-0",
           "translate-y-4",
           "pointer-events-none"
         );
-        msgBox.classList.add("opacity-100", "translate-y-0");
-
         setTimeout(() => {
-          msgBox.classList.remove("opacity-100", "translate-y-0");
           msgBox.classList.add(
             "opacity-0",
             "translate-y-4",
@@ -1203,71 +1054,169 @@
           );
         }, 5000);
       };
+      window.showMessage = showLocalMessage;
 
-      const toggleLoading = (element, show) => {
-        if (show) {
-          element.classList.remove("hidden");
-        } else {
-          element.classList.add("hidden");
-        }
-      };
+      // --- CORE LOGIC ---
+      document.addEventListener("DOMContentLoaded", () => {
+        const auth = window.getAuth();
 
-      // Contact Form Submission
-      document
-        .getElementById("contact-form")
-        .addEventListener("submit", function (e) {
+        // --- AUTHENTICATION LOGIC ---
+        const setupRecaptcha = () => {
+          if (!window.recaptchaVerifier) {
+            window.recaptchaVerifier = new RecaptchaVerifier(
+              auth,
+              "recaptcha-container",
+              {
+                size: "invisible",
+                callback: (response) => {
+                  /* reCAPTCHA solved */
+                },
+              }
+            );
+          }
+        };
+
+        const onSendOtp = () => {
+          setupRecaptcha();
+          const phoneNumber = $("phone-number-input").value;
+          const appVerifier = window.recaptchaVerifier;
+          signInWithPhoneNumber(auth, phoneNumber, appVerifier)
+            .then((confirmationResult) => {
+              window.confirmationResult = confirmationResult;
+              showLocalMessage("Success", "OTP sent to your phone.");
+              $("phone-auth-container").classList.add("hidden");
+              $("otp-container").classList.remove("hidden");
+            })
+            .catch((error) => {
+              console.error("OTP Error", error);
+              showLocalMessage(
+                "Error",
+                "Could not send OTP. Check the phone number format."
+              );
+              window.recaptchaVerifier.render().then((widgetId) => {
+                grecaptcha.reset(widgetId);
+              });
+            });
+        };
+
+        const onVerifyOtp = () => {
+          const code = $("otp-input").value;
+          window.confirmationResult
+            .confirm(code)
+            .then((result) => {
+              const user = result.user;
+              showLocalMessage("Success!", "You are now logged in.");
+              $("auth-modal").classList.add("hidden");
+            })
+            .catch((error) => {
+              showLocalMessage("Error", "Invalid OTP. Please try again.");
+            });
+        };
+
+        const onSignOut = () => {
+          signOut(auth)
+            .then(() => {
+              showLocalMessage("Success", "You have been signed out.");
+            })
+            .catch((error) => {
+              console.error("Sign out error", error);
+            });
+        };
+
+        $$("login-btn").addEventListener("click", () =>
+          $$("auth-modal").classList.remove("hidden")
+        );
+        $$("auth-close-btn").addEventListener("click", () =>
+          $$("auth-modal").classList.add("hidden")
+        );
+        $$("logout-btn").addEventListener("click", onSignOut);
+        $$("send-otp-btn").addEventListener("click", onSendOtp);
+        $$("verify-otp-btn").addEventListener("click", onVerifyOtp);
+        $$("passkey-btn").addEventListener("click", () =>
+          showLocalMessage("Info", "Passkey support is coming soon!")
+        );
+
+        // --- FREEMIUM & PRICING LOGIC ---
+        const updatePrices = (countryCode) => {
+          const { symbol, rate } = prices[countryCode] || prices["US"];
+          $$(
+            "premium-price"
+          ).innerHTML = `${symbol}${rate}<span class="text-lg font-normal">/mo</span>`;
+        };
+
+        const detectCountryAndSetPrice = async () => {
+          try {
+            const response = await fetch("https://ipapi.co/json/");
+            const data = await response.json();
+            const countryCode = data.country_code || "IN";
+            $$("country-selector").value = prices[countryCode]
+              ? countryCode
+              : "US";
+            updatePrices($$("country-selector").value);
+          } catch (error) {
+            $$("country-selector").value = "IN";
+            updatePrices("IN");
+          }
+        };
+
+        const checkGenerationLimit = () => {
+          const profile = window.userProfile();
+          if (profile.generationCount >= FREE_GENERATION_LIMIT) {
+            $("upgrade-modal").classList.remove("hidden");
+            return false;
+          }
+          return true;
+        };
+
+        const incrementGenerationCount = async () => {
+          const profile = window.userProfile();
+          profile.generationCount++;
+          await window.updateUserProfile({
+            generationCount: profile.generationCount,
+          });
+        };
+
+        detectCountryAndSetPrice();
+        $$("country-selector").addEventListener("change", (e) =>
+          updatePrices(e.target.value)
+        );
+
+        // --- PAGE LOGIC ---
+        $$("contact-form").addEventListener("submit", function (e) {
           e.preventDefault();
-          showMessage(
-            "Success!",
-            "Your message has been sent. We will get back to you shortly."
-          );
-          this.reset();
+          this.checkValidity()
+            ? (showLocalMessage("Success!", "Your message has been sent."),
+              this.reset())
+            : showLocalMessage("Error", "Please fill out all fields.");
         });
 
-      // Fashion Try-On Section
-      document.addEventListener("DOMContentLoaded", () => {
-        const tryonPromptInput = document.getElementById("tryon-prompt");
-        const tryonGenerateBtn = document.getElementById("tryon-generate-btn");
-        const tryonSaveBtn = document.getElementById("tryon-save-btn");
-        const tryonOutputImg = document.getElementById("tryon-output-img");
-        const tryonLoading = document.getElementById("tryon-loading");
-        const tryonImageUpload = document.getElementById("tryon-image-upload");
-        const tryonPreviewContainer = document.getElementById(
-          "tryon-preview-container"
-        );
-        const tryonPreviewImg = document.getElementById("tryon-preview-img");
-
+        const tryonPrompt = $$("tryon-prompt"),
+          tryonGenerateBtn = $$("tryon-generate-btn"),
+          tryonSaveBtn = $$("tryon-save-btn"),
+          tryonOutputImg = $$("tryon-output-img"),
+          tryonLoading = $$("tryon-loading");
         let userUploadedImage = null;
-
-        tryonImageUpload.addEventListener("change", (e) => {
-          const file = e.target.files[0];
-          if (file) {
+        $$("tryon-image-upload").addEventListener("change", (e) => {
+          if (e.target.files[0]) {
             const reader = new FileReader();
             reader.onload = (event) => {
               userUploadedImage = event.target.result;
-              tryonPreviewImg.src = userUploadedImage;
-              tryonOutputImg.src = userUploadedImage; // Show preview in main image area as well
-              tryonPreviewContainer.classList.remove("hidden");
+              tryonOutputImg.src = userUploadedImage;
               tryonGenerateBtn.disabled = false;
             };
-            reader.readAsDataURL(file);
+            reader.readAsDataURL(e.target.files[0]);
           }
         });
-
         tryonGenerateBtn.addEventListener("click", async () => {
-          const prompt = tryonPromptInput.value.trim();
-          if (!prompt || !userUploadedImage) {
-            showMessage(
+          if (!checkGenerationLimit()) return;
+          const prompt = tryonPrompt.value.trim();
+          if (!prompt || !userUploadedImage)
+            return showLocalMessage(
               "Input Required",
               "Please upload a photo and describe the outfit."
             );
-            return;
-          }
-
           toggleLoading(tryonLoading, true);
-          tryonGenerateBtn.textContent = "Generating...";
           tryonGenerateBtn.disabled = true;
-
           const base64Image = userUploadedImage.split(",")[1];
           const payload = {
             contents: [
@@ -1280,317 +1229,130 @@
             ],
             generationConfig: { responseModalities: ["IMAGE"] },
           };
-          const apiKey = "";
-          const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image-preview:generateContent?key=${apiKey}`;
-
           try {
-            const response = await fetch(apiUrl, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(payload),
-            });
+            const response = await fetch(
+              `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-image-preview:generateContent?key=`,
+              {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload),
+              }
+            );
             if (!response.ok)
               throw new Error(`HTTP error! status: ${response.status}`);
+            await incrementGenerationCount();
             const result = await response.json();
             const generatedBase64 =
               result?.candidates?.[0]?.content?.parts?.find((p) => p.inlineData)
                 ?.inlineData?.data;
-
             if (generatedBase64) {
-              tryonOutputImg.src = `data:image/jpeg;base64,${generatedBase64}`;
+              const imageUrl = `data:image/jpeg;base64,${generatedBase64}`;
+              tryonOutputImg.src = imageUrl;
               tryonSaveBtn.classList.remove("hidden");
               window.generatedFashionData = {
                 title: "AI Outfit",
-                prompt: prompt,
-                imageUrl: tryonOutputImg.src,
+                prompt,
+                imageUrl,
                 type: "Fashion",
               };
-            } else {
-              throw new Error("No image data received from API.");
-            }
+            } else throw new Error("No image data in response.");
           } catch (error) {
-            console.error("Error generating image:", error);
-            showMessage(
-              "Generation Failed",
-              "Could not generate outfit. Please try again."
-            );
+            showLocalMessage("Generation Failed", "Could not generate outfit.");
           } finally {
             toggleLoading(tryonLoading, false);
-            tryonGenerateBtn.textContent = "Generate";
-            tryonGenerateBtn.disabled = false;
+            if (window.userProfile().generationCount < FREE_GENERATION_LIMIT)
+              tryonGenerateBtn.disabled = false;
           }
         });
-
         tryonSaveBtn.addEventListener(
           "click",
           () =>
             window.generatedFashionData &&
             window.saveDesign(...Object.values(window.generatedFashionData))
         );
-      });
 
-      // Jewellery & Watches Section
-      document.addEventListener("DOMContentLoaded", () => {
-        const jewelleryPromptInput =
-          document.getElementById("jewellery-prompt");
-        const jewelleryGenerateBtn = document.getElementById(
-          "jewellery-generate-btn"
-        );
-        const jewellerySaveBtn = document.getElementById("jewellery-save-btn");
-        const jewelleryDesignImage = document.getElementById(
-          "jewellery-design-image"
-        );
-        const jewelleryPlaceholder = document.getElementById(
-          "jewellery-placeholder"
-        );
-        const jewelleryLoading = document.getElementById("jewellery-loading");
-
-        jewelleryGenerateBtn.addEventListener("click", async () => {
-          const prompt = jewelleryPromptInput.value.trim();
-          if (!prompt) {
-            showMessage(
-              "Input Required",
-              "Please describe the design you want."
-            );
-            return;
-          }
-
-          toggleLoading(jewelleryLoading, true);
-          jewelleryGenerateBtn.disabled = true;
-
-          try {
-            const payload = {
-              instances: [
-                {
-                  prompt: `A high-quality product photo of a ${prompt} on a clean, white background.`,
-                },
-              ],
-              parameters: { sampleCount: 1 },
-            };
-            const apiKey = "";
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/imagen-3.0-generate-002:predict?key=${apiKey}`;
-
-            const response = await fetch(apiUrl, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(payload),
-            });
-
-            if (!response.ok) throw new Error("Failed to generate image.");
-
-            const result = await response.json();
-            const base64Data = result?.predictions?.[0]?.bytesBase64Encoded;
-
-            if (base64Data) {
-              const imageUrl = `data:image/png;base64,${base64Data}`;
-              jewelleryDesignImage.src = imageUrl;
-              jewelleryDesignImage.classList.remove("hidden");
-              jewelleryPlaceholder.classList.add("hidden");
-              jewellerySaveBtn.classList.remove("hidden");
-              window.generatedJewelleryData = {
-                title: "AI Jewellery/Watch",
-                prompt,
-                imageUrl,
-                type: "Jewellery",
-              };
-            } else {
-              throw new Error("No image data in API response.");
-            }
-          } catch (error) {
-            console.error("Jewellery generation error:", error);
-            showMessage(
-              "Generation Failed",
-              "Could not generate design. Please try again."
-            );
-          } finally {
-            toggleLoading(jewelleryLoading, false);
-            jewelleryGenerateBtn.disabled = false;
-          }
-        });
-
-        jewellerySaveBtn.addEventListener(
-          "click",
-          () =>
-            window.generatedJewelleryData &&
-            window.saveDesign(...Object.values(window.generatedJewelleryData))
-        );
-      });
-
-      // Blog Section Search Functionality
-      document.addEventListener("DOMContentLoaded", () => {
         const blogPosts = [
-          {
-            title: "The Future of Shopping: Virtual Try-on",
-            date: "Sep 26, 2025",
-            content:
-              "Discover how AI-powered virtual try-on is revolutionizing the fashion industry...",
-            id: "blog-1",
-          },
-          {
-            title: "Designing Your Dream Home with AI",
-            date: "Sep 24, 2025",
-            content:
-              "Learn how generative AI is making interior design accessible to everyone...",
-            id: "blog-2",
-          },
-          {
-            title: "NLP and the Conversational Experience",
-            date: "Sep 22, 2025",
-            content:
-              "This article dives into how Natural Language Processing is improving communication...",
-            id: "blog-3",
-          },
+          { id: 1, title: "The Future of Shopping", content: "..." },
+          { id: 2, title: "Designing Your Dream Home with AI", content: "..." },
+          { id: 3, title: "NLP and Conversation", content: "..." },
         ];
+        $$("blog-posts-container").innerHTML = blogPosts
+          .map(
+            (p) =>
+              `<div class="card p-6"><h3 class="text-xl font-bold mb-2">${p.title}</h3><p class="text-gray-300 mb-4">${p.content}</p><a href="blog-post-${p.id}.html" class="text-cyan-500 hover:underline">Read More &rarr;</a></div>`
+          )
+          .join("");
 
-        const blogContainer = document.getElementById("blog-posts-container");
-        const searchInput = document.getElementById("blog-search-input");
-
-        const renderBlogPosts = (posts) => {
-          blogContainer.innerHTML = posts.length
-            ? posts
-                .map(
-                  (post) => `
-            <div class="card p-6">
-              <h3 class="text-xl font-bold mb-2">${post.title}</h3>
-              <p class="text-gray-400 text-sm mb-4">Posted on ${post.date}</p>
-              <p class="text-gray-300 mb-4">${post.content}</p>
-              <a href="#" class="text-cyan-500 hover:underline">Read More &rarr;</a>
-            </div>`
-                )
-                .join("")
-            : `<p class="text-center text-gray-400 col-span-full">No articles found.</p>`;
+        // --- MODAL LOGIC ---
+        const suggestionModal = $$("suggestion-modal"),
+          upgradeModal = $$("upgrade-modal");
+        const openModal = (targetId, type) => {
+          if (!checkGenerationLimit()) return;
+          window.currentTargetTextarea = $$$(targetId);
+          window.currentSuggestionType = type;
+          $$("modal-title").textContent = `Get AI Suggestion for ${type}`;
+          suggestionModal.classList.remove("hidden");
         };
-
-        searchInput.addEventListener("input", (e) => {
-          const query = e.target.value.toLowerCase();
-          renderBlogPosts(
-            blogPosts.filter(
-              (post) =>
-                post.title.toLowerCase().includes(query) ||
-                post.content.toLowerCase().includes(query)
-            )
-          );
-        });
-
-        renderBlogPosts(blogPosts);
-      });
-
-      // FAQ Accordion
-      document.addEventListener("DOMContentLoaded", () => {
-        document.querySelectorAll(".accordion-header").forEach((header) => {
-          header.addEventListener("click", () => {
-            const content = header.nextElementSibling;
-            header.classList.toggle("active");
-            content.classList.toggle("active");
-            header.querySelector(".icon").textContent =
-              header.classList.contains("active") ? "-" : "+";
-          });
-        });
-      });
-
-      // Gemini Suggestion Modal Logic
-      document.addEventListener("DOMContentLoaded", () => {
-        const modal = document.getElementById("suggestion-modal");
-        const modalTitle = document.getElementById("modal-title");
-        const modalKeywords = document.getElementById("modal-keywords");
-        const modalGenerateBtn = document.getElementById("modal-generate-btn");
-        const modalCloseBtn = document.getElementById("modal-close-btn");
-        const modalLoader = document.getElementById("modal-loader");
-
-        let currentTargetTextarea = null;
-        let currentSuggestionType = "";
-
-        const openModal = (targetTextareaId, type) => {
-          currentTargetTextarea = document.getElementById(targetTextareaId);
-          currentSuggestionType = type;
-          modalTitle.textContent = `Get AI Suggestion for ${type}`;
-          modal.classList.remove("hidden");
-        };
-
-        const closeModal = () => {
-          modal.classList.add("hidden");
-          modalKeywords.value = "";
-          modalLoader.classList.add("hidden");
-        };
-
-        document
-          .getElementById("suggest-fashion-btn")
-          .addEventListener("click", () =>
-            openModal("tryon-prompt", "Fashion")
-          );
-        document
-          .getElementById("suggest-decor-btn")
-          .addEventListener("click", () => openModal("decor-prompt", "Decor"));
-        document
-          .getElementById("suggest-jewellery-btn")
-          .addEventListener("click", () =>
-            openModal("jewellery-prompt", "Jewellery")
-          );
-
-        modalCloseBtn.addEventListener("click", closeModal);
-
-        modalGenerateBtn.addEventListener("click", async () => {
-          const keywords = modalKeywords.value.trim();
-          if (!keywords) {
-            showMessage("Input Required", "Please enter some keywords.");
-            return;
-          }
-
-          modalLoader.classList.remove("hidden");
-          modalGenerateBtn.disabled = true;
-
-          let systemPrompt = "";
-          switch (currentSuggestionType) {
-            case "Fashion":
-              systemPrompt =
-                "You are a creative fashion stylist. Based on the following keywords, generate a detailed, single-paragraph description of a stylish outfit. Be vivid and inspiring.";
-              break;
-            case "Decor":
-              systemPrompt =
-                "You are an expert interior designer. Based on the following keywords, generate a detailed, single-paragraph description of a home decor item or scene. Focus on materials, style, and ambiance.";
-              break;
-            case "Jewellery":
-              systemPrompt =
-                "You are a master jeweller. Based on the following keywords, generate a detailed, single-paragraph description of a unique piece of jewellery or a watch. Describe the materials, craftsmanship, and overall aesthetic.";
-              break;
-          }
-
-          const userQuery = `Keywords: ${keywords}`;
-
+        $$("suggest-fashion-btn").addEventListener("click", () =>
+          openModal("tryon-prompt", "Fashion")
+        );
+        $$("modal-close-btn").addEventListener("click", () =>
+          suggestionModal.classList.add("hidden")
+        );
+        const hideUpgradeModal = () => upgradeModal.classList.add("hidden");
+        $$("upgrade-modal-close-btn").addEventListener(
+          "click",
+          hideUpgradeModal
+        );
+        $$("upgrade-modal-action-btn").addEventListener(
+          "click",
+          hideUpgradeModal
+        );
+        $$("modal-generate-btn").addEventListener("click", async () => {
+          const keywords = $$("modal-keywords").value.trim();
+          if (!keywords)
+            return showLocalMessage("Input Required", "Please enter keywords.");
+          toggleLoading($$("modal-loader"), true);
+          $$("modal-generate-btn").disabled = true;
+          const prompts = { Fashion: "...", Decor: "...", Jewellery: "..." };
+          const payload = {
+            contents: [
+              {
+                parts: [
+                  {
+                    text: `${
+                      prompts[window.currentSuggestionType]
+                    } ${keywords}`,
+                  },
+                ],
+              },
+            ],
+          };
           try {
-            const apiKey = "";
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
-            const payload = {
-              contents: [{ parts: [{ text: userQuery }] }],
-              systemInstruction: { parts: [{ text: systemPrompt }] },
-            };
-
-            const response = await fetch(apiUrl, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(payload),
-            });
-
+            const response = await fetch(
+              `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=`,
+              {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload),
+              }
+            );
             if (!response.ok) throw new Error("API request failed");
-
+            await incrementGenerationCount();
             const result = await response.json();
             const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
-
-            if (text && currentTargetTextarea) {
-              currentTargetTextarea.value = text;
-              closeModal();
-            } else {
-              throw new Error("No text generated or target not found.");
-            }
+            if (text) {
+              window.currentTargetTextarea.value = text;
+              suggestionModal.classList.add("hidden");
+            } else throw new Error("No text generated.");
           } catch (error) {
-            console.error("Gemini suggestion error:", error);
-            showMessage(
+            showLocalMessage(
               "Generation Failed",
-              "Could not get a suggestion. Please try again."
+              "Could not get a suggestion."
             );
           } finally {
-            modalLoader.classList.add("hidden");
-            modalGenerateBtn.disabled = false;
+            toggleLoading($$("modal-loader"), false);
+            $$("modal-generate-btn").disabled = false;
           }
         });
       });
